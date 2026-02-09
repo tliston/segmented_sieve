@@ -40,7 +40,7 @@ struct timespec diff_timespec(const struct timespec *time1, const struct timespe
         .tv_nsec = time1->tv_nsec - time0->tv_nsec
     };
     if (diff.tv_nsec < 0) {
-        diff.tv_nsec += 1000000000;              // nsec/sec
+        diff.tv_nsec += 1000000000;
         diff.tv_sec--;
     }
     return diff;
@@ -218,7 +218,7 @@ int main(int argc, char *argv[]) {
 
     clock_gettime(CLOCK_REALTIME, &end);
     diff = diff_timespec(&end, &begin);
-    printf("Time = %0.5f seconds\n", diff.tv_sec + (diff.tv_nsec / 1000000000.0));
+    printf("Time = %0.5f seconds\n", diff.tv_sec + (diff.tv_nsec / 1e9));
     printf("Total primes: %'lu in %'lu\n", total_primes, max_num);
 
     free(base_primes);
