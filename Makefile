@@ -7,7 +7,7 @@ ASM     = segmented_sieve.s
 OBJECTS = $(SOURCES:.c=.o)
 CC      = gcc
 
-all: $(SOURCES) $(TARGETS)
+all: $(SOURCES) $(TARGETS) $(ASM)
 
 $(TARGETS): $(OBJECTS) Makefile
 	$(CC) $(OBJECTS) -o $@ $(LDFLAGS)
@@ -20,4 +20,5 @@ segmented_sieve.s: segmented_sieve.c Makefile
 
 clean:
 	rm -f segmented_sieve.o
+	rm -f segmented_sieve.s
 	rm -f segmented_sieve
