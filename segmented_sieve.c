@@ -123,6 +123,7 @@ void *SieveRange(void *arg) {
     PrimeState *local_primes = malloc(sizeof(PrimeState) * prime_count);
     memcpy(local_primes, data->base_primes, sizeof(PrimeState) * prime_count);
 
+    // fast forward the next_bit values for each prime, based on our working range
     for (size_t i = 0; i < prime_count; i++) {
         uint64_t p = local_primes[i].p;
         uint64_t next = local_primes[i].next_bit;
@@ -176,6 +177,8 @@ void *SieveRange(void *arg) {
                     chk_bit = c7 + step;
                 }
             }
+            // do any "left over" bits that aren't in our
+            // multiple-of-8 sized block...
             while (chk_bit < bits_in_block) {
                 block[chk_bit >> 3] &= mask2[chk_bit & 7];
                 chk_bit += step;
@@ -183,18 +186,27 @@ void *SieveRange(void *arg) {
             local_primes[i].next_bit = offset + chk_bit;
         }
 
+        // we want to step through memory as 64-bit values
+        // so we need to convert to the proper kind of pointer
         uint64_t *block64 = (uint64_t *) block;
+        // step through memory, and count the bits that are
+        // turned on within each 64-bit chunk...
         for (uint64_t k = 0; k < BLOCK_BYTES / 8; k++) {
             uint64_t current_idx = offset + (k * 64);
+            // if we're beyond the end_bit, we're done
             if (current_idx >= data->end_bit) break;
             uint64_t val = block64[k];
-            if (current_idx + 64 > data->end_bit) {
+            // if we're right before the end of our range,
+            // blank out any bits that are beyond the end
+            // of our range before counting...
+            if (current_idx + 64 > data->end_bit)
                 val &= (~0ULL >> (current_idx + 64 - data->end_bit));
-            }
+            // count bits using popcount()
             data->thread_total += __builtin_popcountll(val);
         }
     }
 
+    // free memory and return
     _mm_free(block);
     free(local_primes);
     return NULL;
