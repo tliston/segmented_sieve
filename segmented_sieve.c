@@ -13,8 +13,7 @@
 #define BLOCK_BITS  (BLOCK_BYTES * 8)
 #define SUPER_PATTERN_BYTES 3360
 
-static uint8_t mask[] = { 1, 2, 4, 8, 16, 32, 64, 128 };
-static uint8_t mask2[] = { 254, 253, 251, 247, 239, 223, 191, 127 };
+static uint8_t mask[] = { 254, 253, 251, 247, 239, 223, 191, 127 };
 
 typedef struct {
     uint64_t p;
@@ -91,20 +90,20 @@ PrimeState *GetBasePrimes(uint64_t limit, size_t *count) {
 
     uint64_t i_limit = sqrt(limit);
     for (uint64_t i = 3; i <= i_limit; i += 2) {
-        if (mem[i >> 4] & mask[(i >> 1) & 7]) {
+        if (mem[i >> 4] & (1 << ((i >> 1) & 7))) {
             for (uint64_t j = (i * i) >> 1; j < (limit >> 1) + 1; j += i) {
-                mem[j >> 3] &= mask2[j & 7];
+                mem[j >> 3] &= mask[j & 7];
             }
         }
     }
     size_t c = 0;
     for (uint64_t i = 3; i <= limit; i += 2) {
-        if (mem[i >> 4] & mask[(i >> 1) & 7]) c++;
+        if (mem[i >> 4] & (1 << ((i >> 1) & 7))) c++;
     }
     PrimeState *primes = (PrimeState *) malloc(sizeof(PrimeState) * c);
     size_t idx = 0;
     for (uint64_t i = 3; i <= limit; i += 2) {
-        if (mem[i >> 4] & mask[(i >> 1) & 7]) {
+        if (mem[i >> 4] & (1 << ((i >> 1) & 7))) {
             primes[idx].p = i;
             primes[idx].next_bit = (i * i) >> 1;
             idx++;
@@ -159,28 +158,21 @@ void *SieveRange(void *arg) {
             if (bits_in_block > (step << 3)) {
                 uint64_t unroll_limit = bits_in_block - (step << 3);
                 while (chk_bit < unroll_limit) {
-                    block[chk_bit >> 3] &= mask2[chk_bit & 7];
-                    uint64_t c1 = chk_bit + step;
-                    block[c1 >> 3] &= mask2[c1 & 7];
-                    uint64_t c2 = c1 + step;
-                    block[c2 >> 3] &= mask2[c2 & 7];
-                    uint64_t c3 = c2 + step;
-                    block[c3 >> 3] &= mask2[c3 & 7];
-                    uint64_t c4 = c3 + step;
-                    block[c4 >> 3] &= mask2[c4 & 7];
-                    uint64_t c5 = c4 + step;
-                    block[c5 >> 3] &= mask2[c5 & 7];
-                    uint64_t c6 = c5 + step;
-                    block[c6 >> 3] &= mask2[c6 & 7];
-                    uint64_t c7 = c6 + step;
-                    block[c7 >> 3] &= mask2[c7 & 7];
+                    block[chk_bit >> 3] &= mask[chk_bit & 7];
+                    uint64_t c1 = chk_bit + step; block[c1 >> 3] &= mask[c1 & 7];
+                    uint64_t c2 = c1 + step; block[c2 >> 3] &= mask[c2 & 7];
+                    uint64_t c3 = c2 + step; block[c3 >> 3] &= mask[c3 & 7];
+                    uint64_t c4 = c3 + step; block[c4 >> 3] &= mask[c4 & 7];
+                    uint64_t c5 = c4 + step; block[c5 >> 3] &= mask[c5 & 7];
+                    uint64_t c6 = c5 + step; block[c6 >> 3] &= mask[c6 & 7];
+                    uint64_t c7 = c6 + step; block[c7 >> 3] &= mask[c7 & 7];
                     chk_bit = c7 + step;
                 }
             }
             // do any "left over" bits that aren't in our
             // multiple-of-8 sized block...
             while (chk_bit < bits_in_block) {
-                block[chk_bit >> 3] &= mask2[chk_bit & 7];
+                block[chk_bit >> 3] &= mask[chk_bit & 7];
                 chk_bit += step;
             }
             local_primes[i].next_bit = offset + chk_bit;
@@ -214,7 +206,9 @@ void *SieveRange(void *arg) {
 
 int main(int argc, char *argv[]) {
     if (argc < 2) { printf("Usage: %s max\n", argv[0]); return 1; }
-    uint64_t max_num = strtoull(argv[1], NULL, 0);
+    uint64_t input_max; 
+    uint64_t max_num = input_max = strtoull(argv[1], NULL, 0);
+    if (!(max_num & 1)) max_num--;
     uint64_t total_bits = (max_num >> 1) + 1;
 
     setlocale(LC_ALL, "");
@@ -251,7 +245,7 @@ int main(int argc, char *argv[]) {
     clock_gettime(CLOCK_REALTIME, &end);
     diff = diff_timespec(&end, &begin);
     printf("Time = %0.5f seconds\n", diff.tv_sec + (diff.tv_nsec / 1e9));
-    printf("Total primes: %'lu in %'lu\n", total_primes, max_num);
+    printf("Total primes: %'lu in %'lu\n", total_primes, input_max);
 
     free(base_primes);
     return 0;
