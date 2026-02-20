@@ -1,6 +1,6 @@
 	.file	"segmented_sieve.c"
 	.intel_syntax noprefix
-# GNU C99 (Ubuntu 13.3.0-6ubuntu2~24.04) version 13.3.0 (x86_64-linux-gnu)
+# GNU C99 (Ubuntu 13.3.0-6ubuntu2~24.04.1) version 13.3.0 (x86_64-linux-gnu)
 #	compiled by GNU C version 13.3.0, GMP version 6.3.0, MPFR version 4.2.1, MPC version 1.3.1, isl version isl-0.26-GMP
 
 # GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
@@ -413,7 +413,7 @@ SieveRange:
 	lea	rax, 16800[r11]	# tmp353,
 	lea	rdx, 20160[r11]	# tmp350,
 	mov	QWORD PTR 128[rsp], r8	# %sfp, tmp355
-# segmented_sieve.c:195:                 val &= (~0ULL >> (current_idx + 64 - data->end_bit));
+# segmented_sieve.c:193:                 val &= (~0ULL >> (current_idx + 64 - data->end_bit));
 	mov	r8d, 64	# tmp366,
 	lea	rcx, 23520[r11]	# tmp347,
 	mov	QWORD PTR 88[rsp], rdi	# %sfp, tmp348
@@ -527,15 +527,15 @@ SieveRange:
 	jnb	.L13	#,
 # segmented_sieve.c:150:             uint64_t p = local_primes[i].p;
 	mov	rsi, QWORD PTR [r15]	# p, MEM[(long unsigned int *)_360]
-# segmented_sieve.c:154:             chk_bit -= offset;
+# segmented_sieve.c:153:             chk_bit -= offset;
 	sub	rax, r9	# chk_bit, ivtmp.97
-# segmented_sieve.c:158:             if (bits_in_block > (step << 3)) {
+# segmented_sieve.c:156:             if (bits_in_block > (step << 3)) {
 	lea	r8, 0[0+rsi*8]	# _19,
-# segmented_sieve.c:158:             if (bits_in_block > (step << 3)) {
+# segmented_sieve.c:156:             if (bits_in_block > (step << 3)) {
 	cmp	r8, r11	# _19, iftmp.3_96
 	jb	.L14	#,
 .L17:
-# segmented_sieve.c:174:             while (chk_bit < bits_in_block) {
+# segmented_sieve.c:172:             while (chk_bit < bits_in_block) {
 	cmp	rax, r11	# chk_bit, iftmp.3_96
 	jnb	.L16	#,
 	cmp	rsi, 1	# p,
@@ -556,200 +556,200 @@ SieveRange:
 	je	.L158	#,
 	cmp	rcx, 6	# tmp377,
 	je	.L159	#,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	mov	r12, rax	# tmp492, chk_bit
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	mov	rbp, rax	# tmp494, chk_bit
-# segmented_sieve.c:176:                 chk_bit += step;
+# segmented_sieve.c:174:                 chk_bit += step;
 	add	rax, 1	# chk_bit,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	shr	r12, 3	# tmp492,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	and	ebp, 7	# tmp494,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	movzx	r8d, BYTE PTR [r10+rbp]	# mask[_338], mask[_338]
 	and	BYTE PTR 0[r13+r12], r8b	# *_340, mask[_338]
 .L159:
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	mov	rsi, rax	# tmp496, chk_bit
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	mov	rbx, rax	# tmp498, chk_bit
-# segmented_sieve.c:176:                 chk_bit += step;
+# segmented_sieve.c:174:                 chk_bit += step;
 	add	rax, 1	# chk_bit,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	shr	rsi, 3	# tmp496,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	and	ebx, 7	# tmp498,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	movzx	edx, BYTE PTR [r10+rbx]	# mask[_338], mask[_338]
 	and	BYTE PTR 0[r13+rsi], dl	# *_340, mask[_338]
 .L158:
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	mov	rdi, rax	# tmp500, chk_bit
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	mov	rcx, rax	# tmp502, chk_bit
-# segmented_sieve.c:176:                 chk_bit += step;
+# segmented_sieve.c:174:                 chk_bit += step;
 	add	rax, 1	# chk_bit,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	shr	rdi, 3	# tmp500,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	and	ecx, 7	# tmp502,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	movzx	r12d, BYTE PTR [r10+rcx]	# mask[_338], mask[_338]
 	and	BYTE PTR 0[r13+rdi], r12b	# *_340, mask[_338]
 .L157:
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	mov	rbp, rax	# tmp504, chk_bit
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	mov	r8, rax	# tmp506, chk_bit
-# segmented_sieve.c:176:                 chk_bit += step;
+# segmented_sieve.c:174:                 chk_bit += step;
 	add	rax, 1	# chk_bit,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	shr	rbp, 3	# tmp504,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	and	r8d, 7	# tmp506,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	movzx	esi, BYTE PTR [r10+r8]	# mask[_338], mask[_338]
 	and	BYTE PTR 0[r13+rbp], sil	# *_340, mask[_338]
 .L156:
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	mov	rbx, rax	# tmp508, chk_bit
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	mov	rdx, rax	# tmp510, chk_bit
-# segmented_sieve.c:176:                 chk_bit += step;
+# segmented_sieve.c:174:                 chk_bit += step;
 	add	rax, 1	# chk_bit,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	shr	rbx, 3	# tmp508,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	and	edx, 7	# tmp510,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	movzx	edi, BYTE PTR [r10+rdx]	# mask[_338], mask[_338]
 	and	BYTE PTR 0[r13+rbx], dil	# *_340, mask[_338]
 .L155:
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	mov	r12, rax	# tmp512, chk_bit
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	mov	rcx, rax	# tmp514, chk_bit
-# segmented_sieve.c:176:                 chk_bit += step;
+# segmented_sieve.c:174:                 chk_bit += step;
 	add	rax, 1	# chk_bit,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	shr	r12, 3	# tmp512,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	and	ecx, 7	# tmp514,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	movzx	ebp, BYTE PTR [r10+rcx]	# mask[_338], mask[_338]
 	and	BYTE PTR 0[r13+r12], bpl	# *_340, mask[_338]
 .L154:
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	mov	r8, rax	# tmp516, chk_bit
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	mov	rsi, rax	# tmp518, chk_bit
-# segmented_sieve.c:176:                 chk_bit += step;
+# segmented_sieve.c:174:                 chk_bit += step;
 	add	rax, 1	# chk_bit,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	shr	r8, 3	# tmp516,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	and	esi, 7	# tmp518,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	movzx	ebx, BYTE PTR [r10+rsi]	# mask[_338], mask[_338]
 	and	BYTE PTR 0[r13+r8], bl	# *_340, mask[_338]
-# segmented_sieve.c:174:             while (chk_bit < bits_in_block) {
+# segmented_sieve.c:172:             while (chk_bit < bits_in_block) {
 	cmp	r11, rax	# iftmp.3_96, chk_bit
 	je	.L16	#,
 .L19:
-# segmented_sieve.c:176:                 chk_bit += step;
+# segmented_sieve.c:174:                 chk_bit += step;
 	lea	rbp, 1[rax]	# tmp378,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	mov	rdx, rax	# tmp331, chk_bit
-# segmented_sieve.c:176:                 chk_bit += step;
+# segmented_sieve.c:174:                 chk_bit += step;
 	lea	rsi, 2[rax]	# chk_bit,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	mov	rdi, rax	# tmp333, chk_bit
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	mov	rcx, rbp	# tmp390, tmp378
 	shr	rdx, 3	# tmp331,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	and	edi, 7	# tmp333,
 	and	ebp, 7	# tmp392,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	shr	rcx, 3	# tmp390,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	movzx	r12d, BYTE PTR [r10+rdi]	# mask[_338], mask[_338]
 	movzx	r8d, BYTE PTR [r10+rbp]	# mask[_338], mask[_338]
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	mov	rbx, rsi	# tmp395, chk_bit
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	and	BYTE PTR 0[r13+rdx], r12b	# *_340, mask[_338]
-# segmented_sieve.c:176:                 chk_bit += step;
+# segmented_sieve.c:174:                 chk_bit += step;
 	lea	rdi, 3[rax]	# chk_bit,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	shr	rbx, 3	# tmp395,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	and	esi, 7	# tmp397,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	and	BYTE PTR 0[r13+rcx], r8b	# *_340, mask[_338]
-# segmented_sieve.c:176:                 chk_bit += step;
+# segmented_sieve.c:174:                 chk_bit += step;
 	lea	r8, 4[rax]	# chk_bit,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	mov	r12, rdi	# tmp400, chk_bit
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	and	edi, 7	# tmp402,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	mov	rcx, r8	# tmp405, chk_bit
 	shr	r12, 3	# tmp400,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	and	r8d, 7	# tmp407,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	movzx	edx, BYTE PTR [r10+rsi]	# mask[_338], mask[_338]
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	shr	rcx, 3	# tmp405,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	and	BYTE PTR 0[r13+rbx], dl	# *_340, mask[_338]
 	movzx	ebp, BYTE PTR [r10+rdi]	# mask[_338], mask[_338]
-# segmented_sieve.c:176:                 chk_bit += step;
+# segmented_sieve.c:174:                 chk_bit += step;
 	lea	rbx, 5[rax]	# chk_bit,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	and	BYTE PTR 0[r13+r12], bpl	# *_340, mask[_338]
 	movzx	esi, BYTE PTR [r10+r8]	# mask[_338], mask[_338]
-# segmented_sieve.c:176:                 chk_bit += step;
+# segmented_sieve.c:174:                 chk_bit += step;
 	lea	r12, 6[rax]	# chk_bit,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	mov	rdi, rbx	# tmp410, chk_bit
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	and	BYTE PTR 0[r13+rcx], sil	# *_340, mask[_338]
-# segmented_sieve.c:176:                 chk_bit += step;
+# segmented_sieve.c:174:                 chk_bit += step;
 	lea	rsi, 7[rax]	# chk_bit,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	mov	rbp, r12	# tmp415, chk_bit
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	and	ebx, 7	# tmp412,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	mov	rcx, rsi	# tmp420, chk_bit
 	shr	rdi, 3	# tmp410,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	and	r12d, 7	# tmp417,
 	and	esi, 7	# tmp422,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	shr	rbp, 3	# tmp415,
 	shr	rcx, 3	# tmp420,
-# segmented_sieve.c:176:                 chk_bit += step;
+# segmented_sieve.c:174:                 chk_bit += step;
 	add	rax, 8	# chk_bit,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	movzx	edx, BYTE PTR [r10+rbx]	# mask[_338], mask[_338]
 	movzx	r8d, BYTE PTR [r10+r12]	# mask[_338], mask[_338]
 	and	BYTE PTR 0[r13+rdi], dl	# *_340, mask[_338]
 	movzx	ebx, BYTE PTR [r10+rsi]	# mask[_338], mask[_338]
 	and	BYTE PTR 0[r13+rbp], r8b	# *_340, mask[_338]
 	and	BYTE PTR 0[r13+rcx], bl	# *_340, mask[_338]
-# segmented_sieve.c:174:             while (chk_bit < bits_in_block) {
+# segmented_sieve.c:172:             while (chk_bit < bits_in_block) {
 	cmp	r11, rax	# iftmp.3_96, chk_bit
 	jne	.L19	#,
 .L16:
-# segmented_sieve.c:178:             local_primes[i].next_bit = offset + chk_bit;
+# segmented_sieve.c:176:             local_primes[i].next_bit = offset + chk_bit;
 	add	rax, r9	# tmp335, ivtmp.97
 # segmented_sieve.c:149:         for (size_t i = 3; i < prime_count; i++) {
 	add	r15, 16	# ivtmp.89,
-# segmented_sieve.c:178:             local_primes[i].next_bit = offset + chk_bit;
+# segmented_sieve.c:176:             local_primes[i].next_bit = offset + chk_bit;
 	mov	QWORD PTR -8[r15], rax	# MEM[(long unsigned int *)_360 + 8B], tmp335
 # segmented_sieve.c:149:         for (size_t i = 3; i < prime_count; i++) {
 	cmp	QWORD PTR 16[rsp], r15	# %sfp, ivtmp.89
@@ -760,7 +760,7 @@ SieveRange:
 	mov	r14, QWORD PTR 160[rsp]	# arg, %sfp
 	mov	ebx, DWORD PTR 172[rsp]	# tmp367, %sfp
 .L22:
-# segmented_sieve.c:189:             if (current_idx >= data->end_bit) break;
+# segmented_sieve.c:187:             if (current_idx >= data->end_bit) break;
 	mov	r10, QWORD PTR 8[rsp]	# _183, %sfp
 	cmp	r9, r10	# ivtmp.97, _183
 	jnb	.L12	#,
@@ -768,31 +768,31 @@ SieveRange:
 	mov	rsi, QWORD PTR 8[rsp]	# tmp370, %sfp
 	mov	rdx, QWORD PTR 24[r14]	# arg__thread_total_lsm.40, MEM[(struct ThreadData *)arg_106(D)].thread_total
 	mov	rcx, r13	# ivtmp.60, _154
-# segmented_sieve.c:187:             uint64_t current_idx = offset + (k * 64);
+# segmented_sieve.c:185:             uint64_t current_idx = offset + (k * 64);
 	mov	rax, r9	# current_idx, ivtmp.97
 	mov	r15, QWORD PTR 8[rsp]	# _183, %sfp
 	sub	rsi, r9	# tmp370, ivtmp.97
 	shr	rsi, 6	# tmp369,
 	and	esi, 7	# tmp371,
 	je	.L23	#,
-# segmented_sieve.c:194:             if (current_idx + 64 > data->end_bit)
+# segmented_sieve.c:192:             if (current_idx + 64 > data->end_bit)
 	mov	r11, QWORD PTR 8[rsp]	# _183, %sfp
 	lea	rax, 64[r9]	# current_idx,
-# segmented_sieve.c:190:             uint64_t val = block64[k];
+# segmented_sieve.c:188:             uint64_t val = block64[k];
 	mov	r8, QWORD PTR 0[r13]	# val, MEM[(uint64_t *)_390]
 	mov	rdi, r9	# current_idx, ivtmp.97
-# segmented_sieve.c:194:             if (current_idx + 64 > data->end_bit)
+# segmented_sieve.c:192:             if (current_idx + 64 > data->end_bit)
 	cmp	r11, rax	# _183, current_idx
 	jb	.L199	#,
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	xor	r15d, r15d	# _85
 	popcnt	r15, r8	# _85, val
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	add	rdx, r15	# arg__thread_total_lsm.40, _85
-# segmented_sieve.c:186:         for (uint64_t k = 0; k < BLOCK_BYTES / 8; k++) {
+# segmented_sieve.c:184:         for (uint64_t k = 0; k < BLOCK_BYTES / 8; k++) {
 	cmp	r9, r12	# ivtmp.97, ivtmp.99
 	je	.L26	#,
-# segmented_sieve.c:189:             if (current_idx >= data->end_bit) break;
+# segmented_sieve.c:187:             if (current_idx >= data->end_bit) break;
 	cmp	rax, r11	# current_idx, _183
 	lea	rcx, 8[r13]	# ivtmp.60,
 	jnb	.L26	#,
@@ -809,95 +809,95 @@ SieveRange:
 	cmp	rsi, 6	# tmp371,
 	je	.L166	#,
 	mov	r10, rax	# current_idx, current_idx
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	xor	esi, esi	# _85
 	add	rax, 64	# current_idx,
 	popcnt	rsi, QWORD PTR [rcx]	# _85, MEM[(uint64_t *)_390]
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	add	rdx, rsi	# arg__thread_total_lsm.40, _85
-# segmented_sieve.c:186:         for (uint64_t k = 0; k < BLOCK_BYTES / 8; k++) {
+# segmented_sieve.c:184:         for (uint64_t k = 0; k < BLOCK_BYTES / 8; k++) {
 	cmp	r10, r12	# current_idx, ivtmp.99
 	je	.L26	#,
-# segmented_sieve.c:189:             if (current_idx >= data->end_bit) break;
+# segmented_sieve.c:187:             if (current_idx >= data->end_bit) break;
 	add	rcx, 8	# ivtmp.60,
 	cmp	rax, r11	# current_idx, _183
 	jnb	.L26	#,
 .L166:
 	mov	r8, rax	# current_idx, current_idx
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	xor	edi, edi	# _85
 	add	rax, 64	# current_idx,
 	popcnt	rdi, QWORD PTR [rcx]	# _85, MEM[(uint64_t *)_390]
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	add	rdx, rdi	# arg__thread_total_lsm.40, _85
-# segmented_sieve.c:186:         for (uint64_t k = 0; k < BLOCK_BYTES / 8; k++) {
+# segmented_sieve.c:184:         for (uint64_t k = 0; k < BLOCK_BYTES / 8; k++) {
 	cmp	r8, r12	# current_idx, ivtmp.99
 	je	.L26	#,
-# segmented_sieve.c:189:             if (current_idx >= data->end_bit) break;
+# segmented_sieve.c:187:             if (current_idx >= data->end_bit) break;
 	mov	r11, QWORD PTR 8[rsp]	# _183, %sfp
 	add	rcx, 8	# ivtmp.60,
 	cmp	rax, r11	# current_idx, _183
 	jnb	.L26	#,
 .L165:
 	mov	r15, rax	# current_idx, current_idx
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	xor	r10d, r10d	# _85
 	add	rax, 64	# current_idx,
 	popcnt	r10, QWORD PTR [rcx]	# _85, MEM[(uint64_t *)_390]
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	add	rdx, r10	# arg__thread_total_lsm.40, _85
-# segmented_sieve.c:186:         for (uint64_t k = 0; k < BLOCK_BYTES / 8; k++) {
+# segmented_sieve.c:184:         for (uint64_t k = 0; k < BLOCK_BYTES / 8; k++) {
 	cmp	r15, r12	# current_idx, ivtmp.99
 	je	.L26	#,
-# segmented_sieve.c:189:             if (current_idx >= data->end_bit) break;
+# segmented_sieve.c:187:             if (current_idx >= data->end_bit) break;
 	mov	rsi, QWORD PTR 8[rsp]	# _183, %sfp
 	add	rcx, 8	# ivtmp.60,
 	cmp	rax, rsi	# current_idx, _183
 	jnb	.L26	#,
 .L164:
 	mov	r8, rax	# current_idx, current_idx
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	xor	edi, edi	# _85
 	add	rax, 64	# current_idx,
 	popcnt	rdi, QWORD PTR [rcx]	# _85, MEM[(uint64_t *)_390]
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	add	rdx, rdi	# arg__thread_total_lsm.40, _85
-# segmented_sieve.c:186:         for (uint64_t k = 0; k < BLOCK_BYTES / 8; k++) {
+# segmented_sieve.c:184:         for (uint64_t k = 0; k < BLOCK_BYTES / 8; k++) {
 	cmp	r8, r12	# current_idx, ivtmp.99
 	je	.L26	#,
-# segmented_sieve.c:189:             if (current_idx >= data->end_bit) break;
+# segmented_sieve.c:187:             if (current_idx >= data->end_bit) break;
 	mov	r11, QWORD PTR 8[rsp]	# _183, %sfp
 	add	rcx, 8	# ivtmp.60,
 	cmp	rax, r11	# current_idx, _183
 	jnb	.L26	#,
 .L163:
 	mov	r15, rax	# current_idx, current_idx
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	xor	r10d, r10d	# _85
 	add	rax, 64	# current_idx,
 	popcnt	r10, QWORD PTR [rcx]	# _85, MEM[(uint64_t *)_390]
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	add	rdx, r10	# arg__thread_total_lsm.40, _85
-# segmented_sieve.c:186:         for (uint64_t k = 0; k < BLOCK_BYTES / 8; k++) {
+# segmented_sieve.c:184:         for (uint64_t k = 0; k < BLOCK_BYTES / 8; k++) {
 	cmp	r15, r12	# current_idx, ivtmp.99
 	je	.L26	#,
-# segmented_sieve.c:189:             if (current_idx >= data->end_bit) break;
+# segmented_sieve.c:187:             if (current_idx >= data->end_bit) break;
 	mov	rsi, QWORD PTR 8[rsp]	# _183, %sfp
 	add	rcx, 8	# ivtmp.60,
 	cmp	rax, rsi	# current_idx, _183
 	jnb	.L26	#,
 .L162:
 	mov	r8, rax	# current_idx, current_idx
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	xor	edi, edi	# _85
 	add	rax, 64	# current_idx,
 	popcnt	rdi, QWORD PTR [rcx]	# _85, MEM[(uint64_t *)_390]
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	add	rdx, rdi	# arg__thread_total_lsm.40, _85
-# segmented_sieve.c:186:         for (uint64_t k = 0; k < BLOCK_BYTES / 8; k++) {
+# segmented_sieve.c:184:         for (uint64_t k = 0; k < BLOCK_BYTES / 8; k++) {
 	cmp	r8, r12	# current_idx, ivtmp.99
 	je	.L26	#,
-# segmented_sieve.c:189:             if (current_idx >= data->end_bit) break;
+# segmented_sieve.c:187:             if (current_idx >= data->end_bit) break;
 	mov	r11, QWORD PTR 8[rsp]	# _183, %sfp
 	add	rcx, 8	# ivtmp.60,
 	cmp	rax, r11	# current_idx, _183
@@ -905,122 +905,122 @@ SieveRange:
 	mov	r15, r11	# _183, _183
 	jmp	.L23	#
 .L24:
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	xor	r10d, r10d	# _85
 	popcnt	r10, r8	# _85, val
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	add	rdx, r10	# arg__thread_total_lsm.40, _85
-# segmented_sieve.c:186:         for (uint64_t k = 0; k < BLOCK_BYTES / 8; k++) {
+# segmented_sieve.c:184:         for (uint64_t k = 0; k < BLOCK_BYTES / 8; k++) {
 	cmp	rax, r12	# current_idx, ivtmp.99
 	je	.L26	#,
-# segmented_sieve.c:189:             if (current_idx >= data->end_bit) break;
+# segmented_sieve.c:187:             if (current_idx >= data->end_bit) break;
 	cmp	rsi, r15	# tmp372, _183
 	lea	rdi, 8[rcx]	# tmp373,
 	jnb	.L26	#,
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	xor	r11d, r11d	# _85
 	popcnt	r11, QWORD PTR 8[rcx]	# _85, MEM[(uint64_t *)_390]
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	add	rdx, r11	# arg__thread_total_lsm.40, _85
-# segmented_sieve.c:186:         for (uint64_t k = 0; k < BLOCK_BYTES / 8; k++) {
+# segmented_sieve.c:184:         for (uint64_t k = 0; k < BLOCK_BYTES / 8; k++) {
 	cmp	rsi, r12	# tmp372, ivtmp.99
 	lea	r8, 128[rax]	# current_idx,
 	je	.L26	#,
-# segmented_sieve.c:189:             if (current_idx >= data->end_bit) break;
+# segmented_sieve.c:187:             if (current_idx >= data->end_bit) break;
 	cmp	r8, r15	# current_idx, _183
 	jnb	.L26	#,
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	xor	r11d, r11d	# _85
 	popcnt	r11, QWORD PTR 16[rcx]	# _85, MEM[(uint64_t *)_390]
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	add	rdx, r11	# arg__thread_total_lsm.40, _85
-# segmented_sieve.c:186:         for (uint64_t k = 0; k < BLOCK_BYTES / 8; k++) {
+# segmented_sieve.c:184:         for (uint64_t k = 0; k < BLOCK_BYTES / 8; k++) {
 	cmp	r8, r12	# current_idx, ivtmp.99
 	lea	r10, 192[rax]	# current_idx,
 	je	.L26	#,
-# segmented_sieve.c:189:             if (current_idx >= data->end_bit) break;
+# segmented_sieve.c:187:             if (current_idx >= data->end_bit) break;
 	cmp	r10, r15	# current_idx, _183
 	jnb	.L26	#,
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	xor	r11d, r11d	# _85
 	popcnt	r11, QWORD PTR 24[rcx]	# _85, MEM[(uint64_t *)_390]
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	add	rdx, r11	# arg__thread_total_lsm.40, _85
-# segmented_sieve.c:186:         for (uint64_t k = 0; k < BLOCK_BYTES / 8; k++) {
+# segmented_sieve.c:184:         for (uint64_t k = 0; k < BLOCK_BYTES / 8; k++) {
 	cmp	r10, r12	# current_idx, ivtmp.99
 	lea	r8, 256[rax]	# current_idx,
 	je	.L26	#,
-# segmented_sieve.c:189:             if (current_idx >= data->end_bit) break;
+# segmented_sieve.c:187:             if (current_idx >= data->end_bit) break;
 	cmp	r8, r15	# current_idx, _183
 	jnb	.L26	#,
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	popcnt	rcx, QWORD PTR 32[rcx]	# _85, MEM[(uint64_t *)_390]
 	add	rax, 320	# current_idx,
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	add	rdx, rcx	# arg__thread_total_lsm.40, _85
-# segmented_sieve.c:186:         for (uint64_t k = 0; k < BLOCK_BYTES / 8; k++) {
+# segmented_sieve.c:184:         for (uint64_t k = 0; k < BLOCK_BYTES / 8; k++) {
 	cmp	r8, r12	# current_idx, ivtmp.99
 	je	.L26	#,
-# segmented_sieve.c:189:             if (current_idx >= data->end_bit) break;
+# segmented_sieve.c:187:             if (current_idx >= data->end_bit) break;
 	cmp	rax, r15	# current_idx, _183
 	jnb	.L26	#,
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	xor	r8d, r8d	# _85
 	popcnt	r8, QWORD PTR 32[rdi]	# _85, MEM[(uint64_t *)_390]
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	add	rdx, r8	# arg__thread_total_lsm.40, _85
-# segmented_sieve.c:186:         for (uint64_t k = 0; k < BLOCK_BYTES / 8; k++) {
+# segmented_sieve.c:184:         for (uint64_t k = 0; k < BLOCK_BYTES / 8; k++) {
 	cmp	rax, r12	# current_idx, ivtmp.99
 	lea	r10, 320[rsi]	# current_idx,
 	je	.L26	#,
-# segmented_sieve.c:189:             if (current_idx >= data->end_bit) break;
+# segmented_sieve.c:187:             if (current_idx >= data->end_bit) break;
 	cmp	r10, r15	# current_idx, _183
 	jnb	.L26	#,
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	xor	eax, eax	# _85
 	popcnt	rax, QWORD PTR 40[rdi]	# _85, MEM[(uint64_t *)_390]
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	add	rdx, rax	# arg__thread_total_lsm.40, _85
-# segmented_sieve.c:186:         for (uint64_t k = 0; k < BLOCK_BYTES / 8; k++) {
+# segmented_sieve.c:184:         for (uint64_t k = 0; k < BLOCK_BYTES / 8; k++) {
 	cmp	r10, r12	# current_idx, ivtmp.99
 	lea	r11, 384[rsi]	# current_idx,
 	je	.L26	#,
-# segmented_sieve.c:189:             if (current_idx >= data->end_bit) break;
+# segmented_sieve.c:187:             if (current_idx >= data->end_bit) break;
 	cmp	r11, r15	# current_idx, _183
 	jnb	.L26	#,
 	lea	rax, 448[rsi]	# current_idx,
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	xor	esi, esi	# _85
 	popcnt	rsi, QWORD PTR 48[rdi]	# _85, MEM[(uint64_t *)_390]
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	add	rdx, rsi	# arg__thread_total_lsm.40, _85
-# segmented_sieve.c:186:         for (uint64_t k = 0; k < BLOCK_BYTES / 8; k++) {
+# segmented_sieve.c:184:         for (uint64_t k = 0; k < BLOCK_BYTES / 8; k++) {
 	cmp	r11, r12	# current_idx, ivtmp.99
 	je	.L26	#,
-# segmented_sieve.c:189:             if (current_idx >= data->end_bit) break;
+# segmented_sieve.c:187:             if (current_idx >= data->end_bit) break;
 	cmp	rax, r15	# current_idx, _183
 	lea	rcx, 56[rdi]	# ivtmp.60,
 	jnb	.L26	#,
 .L23:
 	lea	rsi, 64[rax]	# tmp372,
-# segmented_sieve.c:190:             uint64_t val = block64[k];
+# segmented_sieve.c:188:             uint64_t val = block64[k];
 	mov	r8, QWORD PTR [rcx]	# val, MEM[(uint64_t *)_390]
 	mov	rdi, rax	# current_idx, current_idx
-# segmented_sieve.c:194:             if (current_idx + 64 > data->end_bit)
+# segmented_sieve.c:192:             if (current_idx + 64 > data->end_bit)
 	cmp	r15, rsi	# _183, tmp372
 	jnb	.L24	#,
 .L199:
-# segmented_sieve.c:195:                 val &= (~0ULL >> (current_idx + 64 - data->end_bit));
+# segmented_sieve.c:193:                 val &= (~0ULL >> (current_idx + 64 - data->end_bit));
 	lea	r15d, [rbx+rdi]	# tmp338,
-# segmented_sieve.c:195:                 val &= (~0ULL >> (current_idx + 64 - data->end_bit));
+# segmented_sieve.c:193:                 val &= (~0ULL >> (current_idx + 64 - data->end_bit));
 	mov	rdi, -1	# tmp340,
 	shrx	r10, rdi, r15	# tmp339, tmp340, tmp338
-# segmented_sieve.c:195:                 val &= (~0ULL >> (current_idx + 64 - data->end_bit));
+# segmented_sieve.c:193:                 val &= (~0ULL >> (current_idx + 64 - data->end_bit));
 	and	r10, r8	# val, val
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	xor	r8d, r8d	# _270
 	popcnt	r8, r10	# _270, val
-# segmented_sieve.c:197:             data->thread_total += __builtin_popcountll(val);
+# segmented_sieve.c:195:             data->thread_total += __builtin_popcountll(val);
 	add	rdx, r8	# arg__thread_total_lsm.40, _270
 .L26:
 	mov	QWORD PTR 24[r14], rdx	# MEM[(struct ThreadData *)arg_106(D)].thread_total, arg__thread_total_lsm.40
@@ -1037,10 +1037,10 @@ SieveRange:
 # /usr/lib/gcc/x86_64-linux-gnu/13/include/mm_malloc.h:54:   free (__ptr);
 	mov	rdi, r11	#, _154
 	call	free@PLT	#
-# segmented_sieve.c:203:     free(local_primes);
+# segmented_sieve.c:201:     free(local_primes);
 	mov	rdi, r13	#, local_primes
 	call	free@PLT	#
-# segmented_sieve.c:205: }
+# segmented_sieve.c:203: }
 	mov	rax, QWORD PTR 216[rsp]	# tmp645, D.45593
 	sub	rax, QWORD PTR fs:40	# tmp645, MEM[(<address-space-1> long unsigned int *)40B]
 	jne	.L226	#,
@@ -1063,28 +1063,28 @@ SieveRange:
 	ret	
 .L20:
 	.cfi_restore_state
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	mov	rbx, rax	# tmp327, chk_bit
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	mov	rdx, rax	# tmp329, chk_bit
-# segmented_sieve.c:176:                 chk_bit += step;
+# segmented_sieve.c:174:                 chk_bit += step;
 	add	rax, rsi	# chk_bit, p
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	shr	rbx, 3	# tmp327,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	and	edx, 7	# tmp329,
-# segmented_sieve.c:175:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:173:                 block[chk_bit >> 3] &= mask[chk_bit & 7];
 	movzx	edi, BYTE PTR [r10+rdx]	# mask[_71], mask[_71]
 	and	BYTE PTR 0[r13+rbx], dil	# *_69, mask[_71]
-# segmented_sieve.c:174:             while (chk_bit < bits_in_block) {
+# segmented_sieve.c:172:             while (chk_bit < bits_in_block) {
 	cmp	rax, r11	# chk_bit, iftmp.3_96
 	jb	.L20	#,
 	jmp	.L16	#
 .L14:
-# segmented_sieve.c:159:                 uint64_t unroll_limit = bits_in_block - (step << 3);
+# segmented_sieve.c:157:                 uint64_t unroll_limit = bits_in_block - (step << 3);
 	mov	rbx, r11	# unroll_limit, iftmp.3_96
 	sub	rbx, r8	# unroll_limit, _19
-# segmented_sieve.c:160:                 while (chk_bit < unroll_limit) {
+# segmented_sieve.c:158:                 while (chk_bit < unroll_limit) {
 	cmp	rax, rbx	# chk_bit, unroll_limit
 	jnb	.L17	#,
 	lea	r12, [rsi+rax]	# ivtmp.78,
@@ -1141,77 +1141,77 @@ SieveRange:
 	mov	r12, rbp	# tmp317, tmp317
 	movzx	ebp, BYTE PTR 171[rsp]	# mask_I_lsm0.42, %sfp
 .L18:
-# segmented_sieve.c:161:                     block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:159:                     block[chk_bit >> 3] &= mask[chk_bit & 7];
 	mov	r9, rax	# tmp318, chk_bit
-# segmented_sieve.c:161:                     block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:159:                     block[chk_bit >> 3] &= mask[chk_bit & 7];
 	movzx	r8d, BYTE PTR 24[rsp]	# mask_I_lsm0.49, %sfp
-# segmented_sieve.c:164:                     uint64_t c3 = c2 + step; block[c3 >> 3] &= mask[c3 & 7];
+# segmented_sieve.c:162:                     uint64_t c3 = c2 + step; block[c3 >> 3] &= mask[c3 & 7];
 	add	rax, rcx	# c3, tmp314
-# segmented_sieve.c:161:                     block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:159:                     block[chk_bit >> 3] &= mask[chk_bit & 7];
 	shr	r9, 3	# tmp318,
-# segmented_sieve.c:161:                     block[chk_bit >> 3] &= mask[chk_bit & 7];
+# segmented_sieve.c:159:                     block[chk_bit >> 3] &= mask[chk_bit & 7];
 	and	BYTE PTR 0[r13+r9], r8b	# *_21, mask_I_lsm0.49
-# segmented_sieve.c:162:                     uint64_t c1 = chk_bit + step; block[c1 >> 3] &= mask[c1 & 7];
+# segmented_sieve.c:160:                     uint64_t c1 = chk_bit + step; block[c1 >> 3] &= mask[c1 & 7];
 	mov	r9, rsi	# tmp319, ivtmp.78
-# segmented_sieve.c:162:                     uint64_t c1 = chk_bit + step; block[c1 >> 3] &= mask[c1 & 7];
+# segmented_sieve.c:160:                     uint64_t c1 = chk_bit + step; block[c1 >> 3] &= mask[c1 & 7];
 	movzx	r8d, BYTE PTR 32[rsp]	# mask_I_lsm0.48, %sfp
-# segmented_sieve.c:165:                     uint64_t c4 = c3 + step; block[c4 >> 3] &= mask[c4 & 7];
+# segmented_sieve.c:163:                     uint64_t c4 = c3 + step; block[c4 >> 3] &= mask[c4 & 7];
 	add	rsi, rcx	# c4, tmp314
-# segmented_sieve.c:162:                     uint64_t c1 = chk_bit + step; block[c1 >> 3] &= mask[c1 & 7];
+# segmented_sieve.c:160:                     uint64_t c1 = chk_bit + step; block[c1 >> 3] &= mask[c1 & 7];
 	shr	r9, 3	# tmp319,
-# segmented_sieve.c:162:                     uint64_t c1 = chk_bit + step; block[c1 >> 3] &= mask[c1 & 7];
+# segmented_sieve.c:160:                     uint64_t c1 = chk_bit + step; block[c1 >> 3] &= mask[c1 & 7];
 	and	BYTE PTR 0[r13+r9], r8b	# *_27, mask_I_lsm0.48
-# segmented_sieve.c:163:                     uint64_t c2 = c1 + step; block[c2 >> 3] &= mask[c2 & 7];
+# segmented_sieve.c:161:                     uint64_t c2 = c1 + step; block[c2 >> 3] &= mask[c2 & 7];
 	mov	r9, rdx	# tmp320, ivtmp.79
-# segmented_sieve.c:163:                     uint64_t c2 = c1 + step; block[c2 >> 3] &= mask[c2 & 7];
+# segmented_sieve.c:161:                     uint64_t c2 = c1 + step; block[c2 >> 3] &= mask[c2 & 7];
 	movzx	r8d, BYTE PTR 47[rsp]	# mask_I_lsm0.47, %sfp
-# segmented_sieve.c:163:                     uint64_t c2 = c1 + step; block[c2 >> 3] &= mask[c2 & 7];
+# segmented_sieve.c:161:                     uint64_t c2 = c1 + step; block[c2 >> 3] &= mask[c2 & 7];
 	shr	r9, 3	# tmp320,
-# segmented_sieve.c:163:                     uint64_t c2 = c1 + step; block[c2 >> 3] &= mask[c2 & 7];
+# segmented_sieve.c:161:                     uint64_t c2 = c1 + step; block[c2 >> 3] &= mask[c2 & 7];
 	and	BYTE PTR 0[r13+r9], r8b	# *_33, mask_I_lsm0.47
-# segmented_sieve.c:164:                     uint64_t c3 = c2 + step; block[c3 >> 3] &= mask[c3 & 7];
+# segmented_sieve.c:162:                     uint64_t c3 = c2 + step; block[c3 >> 3] &= mask[c3 & 7];
 	mov	r9, rax	# tmp321, c3
-# segmented_sieve.c:166:                     uint64_t c5 = c4 + step; block[c5 >> 3] &= mask[c5 & 7];
+# segmented_sieve.c:164:                     uint64_t c5 = c4 + step; block[c5 >> 3] &= mask[c5 & 7];
 	add	rax, rdi	# c5, _175
-# segmented_sieve.c:164:                     uint64_t c3 = c2 + step; block[c3 >> 3] &= mask[c3 & 7];
+# segmented_sieve.c:162:                     uint64_t c3 = c2 + step; block[c3 >> 3] &= mask[c3 & 7];
 	movzx	r8d, BYTE PTR 168[rsp]	# mask_I_lsm0.46, %sfp
-# segmented_sieve.c:164:                     uint64_t c3 = c2 + step; block[c3 >> 3] &= mask[c3 & 7];
+# segmented_sieve.c:162:                     uint64_t c3 = c2 + step; block[c3 >> 3] &= mask[c3 & 7];
 	shr	r9, 3	# tmp321,
-# segmented_sieve.c:164:                     uint64_t c3 = c2 + step; block[c3 >> 3] &= mask[c3 & 7];
+# segmented_sieve.c:162:                     uint64_t c3 = c2 + step; block[c3 >> 3] &= mask[c3 & 7];
 	and	BYTE PTR 0[r13+r9], r8b	# *_39, mask_I_lsm0.46
-# segmented_sieve.c:165:                     uint64_t c4 = c3 + step; block[c4 >> 3] &= mask[c4 & 7];
+# segmented_sieve.c:163:                     uint64_t c4 = c3 + step; block[c4 >> 3] &= mask[c4 & 7];
 	mov	r9, rsi	# tmp322, c4
-# segmented_sieve.c:167:                     uint64_t c6 = c5 + step; block[c6 >> 3] &= mask[c6 & 7];
+# segmented_sieve.c:165:                     uint64_t c6 = c5 + step; block[c6 >> 3] &= mask[c6 & 7];
 	add	rsi, rdi	# c6, _175
-# segmented_sieve.c:166:                     uint64_t c5 = c4 + step; block[c5 >> 3] &= mask[c5 & 7];
+# segmented_sieve.c:164:                     uint64_t c5 = c4 + step; block[c5 >> 3] &= mask[c5 & 7];
 	mov	r8, rax	# tmp323, c5
-# segmented_sieve.c:165:                     uint64_t c4 = c3 + step; block[c4 >> 3] &= mask[c4 & 7];
+# segmented_sieve.c:163:                     uint64_t c4 = c3 + step; block[c4 >> 3] &= mask[c4 & 7];
 	shr	r9, 3	# tmp322,
-# segmented_sieve.c:166:                     uint64_t c5 = c4 + step; block[c5 >> 3] &= mask[c5 & 7];
+# segmented_sieve.c:164:                     uint64_t c5 = c4 + step; block[c5 >> 3] &= mask[c5 & 7];
 	shr	r8, 3	# tmp323,
-# segmented_sieve.c:169:                     chk_bit = c7 + step;
+# segmented_sieve.c:167:                     chk_bit = c7 + step;
 	add	rax, rcx	# chk_bit, tmp314
-# segmented_sieve.c:165:                     uint64_t c4 = c3 + step; block[c4 >> 3] &= mask[c4 & 7];
+# segmented_sieve.c:163:                     uint64_t c4 = c3 + step; block[c4 >> 3] &= mask[c4 & 7];
 	and	BYTE PTR 0[r13+r9], r11b	# *_45, mask_I_lsm0.45
-# segmented_sieve.c:167:                     uint64_t c6 = c5 + step; block[c6 >> 3] &= mask[c6 & 7];
+# segmented_sieve.c:165:                     uint64_t c6 = c5 + step; block[c6 >> 3] &= mask[c6 & 7];
 	mov	r9, rsi	# tmp324, c6
-# segmented_sieve.c:160:                 while (chk_bit < unroll_limit) {
+# segmented_sieve.c:158:                 while (chk_bit < unroll_limit) {
 	add	rsi, rcx	# ivtmp.78, tmp314
-# segmented_sieve.c:167:                     uint64_t c6 = c5 + step; block[c6 >> 3] &= mask[c6 & 7];
+# segmented_sieve.c:165:                     uint64_t c6 = c5 + step; block[c6 >> 3] &= mask[c6 & 7];
 	shr	r9, 3	# tmp324,
-# segmented_sieve.c:166:                     uint64_t c5 = c4 + step; block[c5 >> 3] &= mask[c5 & 7];
+# segmented_sieve.c:164:                     uint64_t c5 = c4 + step; block[c5 >> 3] &= mask[c5 & 7];
 	and	BYTE PTR 0[r13+r8], r14b	# *_51, mask_I_lsm0.44
-# segmented_sieve.c:168:                     uint64_t c7 = c6 + step; block[c7 >> 3] &= mask[c7 & 7];
+# segmented_sieve.c:166:                     uint64_t c7 = c6 + step; block[c7 >> 3] &= mask[c7 & 7];
 	lea	r8, [r12+rdx]	# c7,
-# segmented_sieve.c:167:                     uint64_t c6 = c5 + step; block[c6 >> 3] &= mask[c6 & 7];
+# segmented_sieve.c:165:                     uint64_t c6 = c5 + step; block[c6 >> 3] &= mask[c6 & 7];
 	and	BYTE PTR 0[r13+r9], r15b	# *_57, mask_I_lsm0.43
-# segmented_sieve.c:160:                 while (chk_bit < unroll_limit) {
+# segmented_sieve.c:158:                 while (chk_bit < unroll_limit) {
 	mov	r9, QWORD PTR 48[rsp]	# _19, %sfp
-# segmented_sieve.c:168:                     uint64_t c7 = c6 + step; block[c7 >> 3] &= mask[c7 & 7];
+# segmented_sieve.c:166:                     uint64_t c7 = c6 + step; block[c7 >> 3] &= mask[c7 & 7];
 	shr	r8, 3	# tmp326,
-# segmented_sieve.c:168:                     uint64_t c7 = c6 + step; block[c7 >> 3] &= mask[c7 & 7];
+# segmented_sieve.c:166:                     uint64_t c7 = c6 + step; block[c7 >> 3] &= mask[c7 & 7];
 	and	BYTE PTR 0[r13+r8], bpl	# *_63, mask_I_lsm0.42
-# segmented_sieve.c:160:                 while (chk_bit < unroll_limit) {
+# segmented_sieve.c:158:                 while (chk_bit < unroll_limit) {
 	add	rdx, r9	# ivtmp.79, _19
 	cmp	rax, rbx	# chk_bit, unroll_limit
 	jb	.L18	#,
@@ -1262,7 +1262,7 @@ SieveRange:
 	mov	QWORD PTR 8[rcx], rdi	# MEM[(long unsigned int *)_172 + 8B], tmp559
 	jmp	.L124	#
 .L226:
-# segmented_sieve.c:205: }
+# segmented_sieve.c:203: }
 	call	__stack_chk_fail@PLT	#
 	.cfi_endproc
 .LFE6496:
@@ -2436,69 +2436,75 @@ main:
 	.cfi_offset 13, -40
 	.cfi_offset 12, -48
 	.cfi_offset 3, -56
-# segmented_sieve.c:207: int main(int argc, char *argv[]) {
+# segmented_sieve.c:205: int main(int argc, char *argv[]) {
 	mov	rax, QWORD PTR fs:40	# tmp319, MEM[(<address-space-1> long unsigned int *)40B]
 	mov	QWORD PTR -56[rbp], rax	# D.45733, tmp319
 	xor	eax, eax	# tmp319
-# segmented_sieve.c:208:     if (argc < 2) { printf("Usage: %s max\n", argv[0]); return 1; }
+# segmented_sieve.c:206:     if (argc < 2) { printf("Usage: %s max\n", argv[0]); return 1; }
 	cmp	edi, 1	# tmp308,
 	jle	.L452	#,
-# segmented_sieve.c:210:     uint64_t max_num = input_max = strtoull(argv[1], NULL, 0);
+# segmented_sieve.c:208:     uint64_t max_num = input_max = strtoull(argv[1], NULL, 0);
 	mov	rdi, QWORD PTR 8[rsi]	# MEM[(char * *)argv_43(D) + 8B], MEM[(char * *)argv_43(D) + 8B]
 	xor	edx, edx	#
 	xor	esi, esi	#
-# segmented_sieve.c:218:     int num_threads = (nprocs < 1) ? 8 : (int)nprocs;
-	mov	r15d, 8	# tmp229,
-# segmented_sieve.c:210:     uint64_t max_num = input_max = strtoull(argv[1], NULL, 0);
+# segmented_sieve.c:219:     int num_threads = (nprocs < 1) ? 8 : (int)nprocs;
+	mov	ebx, 8	# tmp229,
+# segmented_sieve.c:208:     uint64_t max_num = input_max = strtoull(argv[1], NULL, 0);
 	call	__isoc23_strtoull@PLT	#
-# segmented_sieve.c:214:     setlocale(LC_ALL, "");
-	lea	rsi, .LC5[rip]	# tmp146,
-	mov	edi, 6	#,
-# segmented_sieve.c:210:     uint64_t max_num = input_max = strtoull(argv[1], NULL, 0);
+# segmented_sieve.c:213:     clock_gettime(CLOCK_REALTIME, &begin);
+	lea	rsi, -96[rbp]	# tmp146,
+# segmented_sieve.c:208:     uint64_t max_num = input_max = strtoull(argv[1], NULL, 0);
 	mov	QWORD PTR -152[rbp], rax	# %sfp, input_max
-	mov	rbx, rax	# input_max, tmp310
-# segmented_sieve.c:211:     if (!(max_num & 1)) max_num--;
+	mov	r12, rax	# input_max, tmp310
+# segmented_sieve.c:209:     if (!(max_num & 1)) max_num--;
 	and	eax, 1	# tmp145,
-# segmented_sieve.c:211:     if (!(max_num & 1)) max_num--;
+# segmented_sieve.c:209:     if (!(max_num & 1)) max_num--;
 	cmp	rax, 1	# tmp145,
-	sbb	rbx, 0	# max_num,
-	mov	QWORD PTR -104[rbp], rbx	# %sfp, max_num
-# segmented_sieve.c:212:     uint64_t total_bits = (max_num >> 1) + 1;
-	shr	rbx	# _4
-# segmented_sieve.c:214:     setlocale(LC_ALL, "");
+	sbb	r12, 0	# max_num,
+# segmented_sieve.c:213:     clock_gettime(CLOCK_REALTIME, &begin);
+	xor	edi, edi	#
+# segmented_sieve.c:209:     if (!(max_num & 1)) max_num--;
+	mov	QWORD PTR -104[rbp], r12	# %sfp, max_num
+# segmented_sieve.c:210:     uint64_t total_bits = (max_num >> 1) + 1;
+	shr	r12	# _4
+# segmented_sieve.c:213:     clock_gettime(CLOCK_REALTIME, &begin);
+	call	clock_gettime@PLT	#
+# segmented_sieve.c:215:     setlocale(LC_ALL, "");
+	mov	edi, 6	#,
+# segmented_sieve.c:210:     uint64_t total_bits = (max_num >> 1) + 1;
+	lea	r13, 1[r12]	# total_bits,
+# segmented_sieve.c:215:     setlocale(LC_ALL, "");
+	lea	rsi, .LC5[rip]	# tmp147,
 	call	setlocale@PLT	#
-# segmented_sieve.c:215:     init_avx_pattern();
+# segmented_sieve.c:216:     init_avx_pattern();
 	xor	eax, eax	#
-# segmented_sieve.c:212:     uint64_t total_bits = (max_num >> 1) + 1;
-	lea	r13, 1[rbx]	# total_bits,
-# segmented_sieve.c:215:     init_avx_pattern();
 	call	init_avx_pattern	#
-# segmented_sieve.c:217:     long nprocs = sysconf(_SC_NPROCESSORS_ONLN);
+# segmented_sieve.c:218:     long nprocs = sysconf(_SC_NPROCESSORS_ONLN);
 	mov	edi, 84	#,
 	call	sysconf@PLT	#
 # /usr/include/x86_64-linux-gnu/bits/stdio2.h:86:   return __printf_chk (__USE_FORTIFY_LEVEL - 1, __fmt, __va_arg_pack ());
-	lea	rsi, .LC6[rip]	# tmp147,
+	lea	rsi, .LC6[rip]	# tmp148,
 	mov	edi, 2	#,
-# segmented_sieve.c:218:     int num_threads = (nprocs < 1) ? 8 : (int)nprocs;
+# segmented_sieve.c:219:     int num_threads = (nprocs < 1) ? 8 : (int)nprocs;
 	test	rax, rax	# nprocs
-	cmovg	r15, rax	# nprocs,, tmp229
+	cmovg	rbx, rax	# nprocs,, tmp229
 # /usr/include/x86_64-linux-gnu/bits/stdio2.h:86:   return __printf_chk (__USE_FORTIFY_LEVEL - 1, __fmt, __va_arg_pack ());
 	xor	eax, eax	#
-	mov	edx, r15d	#, iftmp.5_33
-# segmented_sieve.c:221:     pthread_t threads[num_threads];
-	movsx	r14, r15d	# _5, nprocs
-	mov	r12d, r15d	# iftmp.5_33, nprocs
+	mov	edx, ebx	#, iftmp.5_33
+# segmented_sieve.c:222:     pthread_t threads[num_threads];
+	movsx	r15, ebx	# _5, nprocs
+	mov	r14d, ebx	# iftmp.5_33, nprocs
 # /usr/include/x86_64-linux-gnu/bits/stdio2.h:86:   return __printf_chk (__USE_FORTIFY_LEVEL - 1, __fmt, __va_arg_pack ());
 	call	__printf_chk@PLT	#
-# segmented_sieve.c:221:     pthread_t threads[num_threads];
-	lea	rsi, 15[0+r14*8]	# tmp150,
-	mov	rcx, rsp	# tmp157,
-	mov	rdx, rsi	# tmp154, tmp150
-	and	rsi, -4096	# tmp156,
-	and	rdx, -16	# tmp154,
-	sub	rcx, rsi	# tmp157, tmp156
+# segmented_sieve.c:222:     pthread_t threads[num_threads];
+	lea	rsi, 15[0+r15*8]	# tmp151,
+	mov	rcx, rsp	# tmp158,
+	mov	rdx, rsi	# tmp155, tmp151
+	and	rsi, -4096	# tmp157,
+	and	rdx, -16	# tmp155,
+	sub	rcx, rsi	# tmp158, tmp157
 .L387:
-	cmp	rsp, rcx	#, tmp157
+	cmp	rsp, rcx	#, tmp158
 	je	.L388	#,
 	sub	rsp, 4096	#,
 	or	QWORD PTR 4088[rsp], 0	#,
@@ -2509,10 +2515,10 @@ main:
 	mov	edi, 2	#,
 	lea	rsi, .LC4[rip]	# tmp143,
 	call	__printf_chk@PLT	#
-# segmented_sieve.c:208:     if (argc < 2) { printf("Usage: %s max\n", argv[0]); return 1; }
+# segmented_sieve.c:206:     if (argc < 2) { printf("Usage: %s max\n", argv[0]); return 1; }
 	mov	eax, 1	# <retval>,
 .L382:
-# segmented_sieve.c:252: }
+# segmented_sieve.c:250: }
 	mov	rdx, QWORD PTR -56[rbp]	# tmp321, D.45733
 	sub	rdx, QWORD PTR fs:40	# tmp321, MEM[(<address-space-1> long unsigned int *)40B]
 	jne	.L453	#,
@@ -2528,499 +2534,486 @@ main:
 	ret	
 .L388:
 	.cfi_restore_state
-# segmented_sieve.c:221:     pthread_t threads[num_threads];
-	and	edx, 4095	# tmp158,
-	sub	rsp, rdx	#, tmp158
-	test	rdx, rdx	# tmp158
+# segmented_sieve.c:222:     pthread_t threads[num_threads];
+	and	edx, 4095	# tmp159,
+	sub	rsp, rdx	#, tmp159
+	test	rdx, rdx	# tmp159
 	jne	.L454	#,
 .L389:
-# segmented_sieve.c:222:     ThreadData data[num_threads];
-	mov	rdi, r14	# tmp172, _5
-# segmented_sieve.c:221:     pthread_t threads[num_threads];
+# segmented_sieve.c:223:     ThreadData data[num_threads];
+	mov	rdi, r15	# tmp173, _5
+# segmented_sieve.c:222:     pthread_t threads[num_threads];
 	mov	QWORD PTR -128[rbp], rsp	# %sfp,
-# segmented_sieve.c:222:     ThreadData data[num_threads];
-	mov	r9, rsp	# tmp175,
-	sal	rdi, 5	# tmp172,
-	mov	r8, rdi	# tmp174, tmp172
-	and	r8, -4096	# tmp174,
-	sub	r9, r8	# tmp175, tmp174
+# segmented_sieve.c:223:     ThreadData data[num_threads];
+	mov	r9, rsp	# tmp176,
+	sal	rdi, 5	# tmp173,
+	mov	r8, rdi	# tmp175, tmp173
+	and	r8, -4096	# tmp175,
+	sub	r9, r8	# tmp176, tmp175
 .L390:
-	cmp	rsp, r9	#, tmp175
+	cmp	rsp, r9	#, tmp176
 	je	.L391	#,
 	sub	rsp, 4096	#,
 	or	QWORD PTR 4088[rsp], 0	#,
 	jmp	.L390	#
 .L454:
-# segmented_sieve.c:221:     pthread_t threads[num_threads];
+# segmented_sieve.c:222:     pthread_t threads[num_threads];
 	or	QWORD PTR -8[rsp+rdx], 0	#,
 	jmp	.L389	#
 .L391:
-# segmented_sieve.c:222:     ThreadData data[num_threads];
-	and	edi, 4095	# tmp176,
-	sub	rsp, rdi	#, tmp176
-	test	rdi, rdi	# tmp176
+# segmented_sieve.c:223:     ThreadData data[num_threads];
+	and	edi, 4095	# tmp177,
+	sub	rsp, rdi	#, tmp177
+	test	rdi, rdi	# tmp177
 	jne	.L455	#,
 .L392:
-# segmented_sieve.c:223:     PrimeState *base_primes = GetBasePrimes(sqrt(max_num), &prime_count);
+# segmented_sieve.c:224:     PrimeState *base_primes = GetBasePrimes(sqrt(max_num), &prime_count);
 	mov	r10, QWORD PTR -104[rbp]	# max_num, %sfp
-# segmented_sieve.c:222:     ThreadData data[num_threads];
+# segmented_sieve.c:223:     ThreadData data[num_threads];
 	mov	QWORD PTR -136[rbp], rsp	# %sfp,
-# segmented_sieve.c:223:     PrimeState *base_primes = GetBasePrimes(sqrt(max_num), &prime_count);
+# segmented_sieve.c:224:     PrimeState *base_primes = GetBasePrimes(sqrt(max_num), &prime_count);
 	test	r10, r10	# max_num
 	js	.L393	#,
 	vxorpd	xmm3, xmm3, xmm3	# tmp361
 	vcvtsi2sd	xmm0, xmm3, r10	# tmp315, tmp361, max_num
 .L394:
-	vxorpd	xmm1, xmm1, xmm1	# tmp187
-	vucomisd	xmm1, xmm0	# tmp187, _9
+	vxorpd	xmm1, xmm1, xmm1	# tmp188
+	vucomisd	xmm1, xmm0	# tmp188, _9
 	ja	.L445	#,
 	vsqrtsd	xmm0, xmm0, xmm0	# _10, _9
 .L397:
-# segmented_sieve.c:223:     PrimeState *base_primes = GetBasePrimes(sqrt(max_num), &prime_count);
-	vmovsd	xmm2, QWORD PTR .LC1[rip]	# tmp189,
-	vcomisd	xmm0, xmm2	# _10, tmp189
+# segmented_sieve.c:224:     PrimeState *base_primes = GetBasePrimes(sqrt(max_num), &prime_count);
+	vmovsd	xmm2, QWORD PTR .LC1[rip]	# tmp190,
+	vcomisd	xmm0, xmm2	# _10, tmp190
 	jnb	.L398	#,
-	vcvttsd2si	rdi, xmm0	# tmp188, _10
+	vcvttsd2si	rdi, xmm0	# tmp189, _10
 .L399:
-	lea	rsi, prime_count[rip]	# tmp193,
-# segmented_sieve.c:225:     uint64_t total_blocks = (total_bits + BLOCK_BITS - 1) / BLOCK_BITS;
-	add	rbx, 262080	# tmp194,
-# segmented_sieve.c:223:     PrimeState *base_primes = GetBasePrimes(sqrt(max_num), &prime_count);
+	lea	rsi, prime_count[rip]	# tmp194,
+# segmented_sieve.c:226:     uint64_t total_blocks = (total_bits + BLOCK_BITS - 1) / BLOCK_BITS;
+	lea	r12, 262080[r12]	# tmp195,
+# segmented_sieve.c:224:     PrimeState *base_primes = GetBasePrimes(sqrt(max_num), &prime_count);
 	call	GetBasePrimes	#
-# segmented_sieve.c:225:     uint64_t total_blocks = (total_bits + BLOCK_BITS - 1) / BLOCK_BITS;
-	shr	rbx, 6	# tmp196,
-# segmented_sieve.c:229:     clock_gettime(CLOCK_REALTIME, &begin);
-	xor	edi, edi	#
-	lea	rsi, -96[rbp]	# tmp201,
-# segmented_sieve.c:223:     PrimeState *base_primes = GetBasePrimes(sqrt(max_num), &prime_count);
+# segmented_sieve.c:226:     uint64_t total_blocks = (total_bits + BLOCK_BITS - 1) / BLOCK_BITS;
+	shr	r12, 6	# tmp195,
+# segmented_sieve.c:224:     PrimeState *base_primes = GetBasePrimes(sqrt(max_num), &prime_count);
 	mov	QWORD PTR -104[rbp], rax	# %sfp, tmp313
-# segmented_sieve.c:225:     uint64_t total_blocks = (total_bits + BLOCK_BITS - 1) / BLOCK_BITS;
-	movabs	rax, 288300762079953921	# tmp196,
-	mul	rbx	# tmp196
-	mov	rax, rdx	# tmp197, tmp197
-# segmented_sieve.c:226:     uint64_t blocks_per_thread = total_blocks / num_threads;
-	xor	edx, edx	# tmp200
-# segmented_sieve.c:225:     uint64_t total_blocks = (total_bits + BLOCK_BITS - 1) / BLOCK_BITS;
-	shr	rax, 6	# total_blocks,
-# segmented_sieve.c:226:     uint64_t blocks_per_thread = total_blocks / num_threads;
-	div	r14	# _5
-	mov	rbx, rax	# tmp199, total_blocks
-# segmented_sieve.c:229:     clock_gettime(CLOCK_REALTIME, &begin);
-	call	clock_gettime@PLT	#
-# segmented_sieve.c:231:     for (int i = 0; i < num_threads; i++) {
-	test	r12d, r12d	# iftmp.5_33
+# segmented_sieve.c:226:     uint64_t total_blocks = (total_bits + BLOCK_BITS - 1) / BLOCK_BITS;
+	movabs	rax, 288300762079953921	# tmp197,
+	mul	r12	# tmp197
+	mov	rax, rdx	# tmp198, tmp198
+# segmented_sieve.c:227:     uint64_t blocks_per_thread = total_blocks / num_threads;
+	xor	edx, edx	# tmp201
+# segmented_sieve.c:226:     uint64_t total_blocks = (total_bits + BLOCK_BITS - 1) / BLOCK_BITS;
+	shr	rax, 6	# tmp198,
+# segmented_sieve.c:227:     uint64_t blocks_per_thread = total_blocks / num_threads;
+	div	r15	# _5
+# segmented_sieve.c:229:     for (int i = 0; i < num_threads; i++) {
+	test	r14d, r14d	# iftmp.5_33
 	jle	.L407	#,
-# segmented_sieve.c:233:         data[i].end_bit = (i == num_threads - 1) ? total_bits : (i + 1) * blocks_per_thread * BLOCK_BITS;
-	lea	r12d, -1[r12]	# _119,
-	lea	r11d, -1[r15]	# _137,
-	mov	r8, QWORD PTR -128[rbp]	# tmp165, %sfp
-	xor	r15d, r15d	# ivtmp.187
-	mov	DWORD PTR -112[rbp], r12d	# %sfp, _119
-	imul	r12, rbx, 262080	# _73, tmp199,
-	mov	r14, QWORD PTR -136[rbp]	# ivtmp.190, %sfp
+	lea	r11d, -1[rbx]	# _137,
+	mov	r8, QWORD PTR -128[rbp]	# tmp166, %sfp
+# segmented_sieve.c:231:         data[i].end_bit = (i == num_threads - 1) ? total_bits : (i + 1) * blocks_per_thread * BLOCK_BITS;
+	lea	r14d, -1[r14]	# _119,
+	xor	r9d, r9d	# ivtmp.187
+	imul	r12, rax, 262080	# _73, tmp200,
 	mov	QWORD PTR -144[rbp], r11	# %sfp, _137
 	and	r11d, 3	# tmp238,
-	mov	rsi, r8	# ivtmp.181, tmp165
+	mov	r15, QWORD PTR -136[rbp]	# ivtmp.190, %sfp
+	mov	DWORD PTR -108[rbp], r14d	# %sfp, _119
+	mov	r14, r8	# ivtmp.181, tmp166
 	mov	rbx, r12	# ivtmp.193, _73
 	je	.L450	#,
-# segmented_sieve.c:234:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
+# segmented_sieve.c:232:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
 	cmp	r12, r13	# _73, total_bits
 	mov	r15, r13	# tmp297, total_bits
-# segmented_sieve.c:235:         data[i].base_primes = base_primes;
+# segmented_sieve.c:233:         data[i].base_primes = base_primes;
 	mov	rdi, QWORD PTR -104[rbp]	# base_primes, %sfp
-# segmented_sieve.c:236:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
-	mov	rbx, QWORD PTR -128[rbp]	# tmp165, %sfp
-# segmented_sieve.c:234:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
+	mov	QWORD PTR -120[rbp], r11	# %sfp, tmp238
+# segmented_sieve.c:232:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
 	cmovbe	r15, r12	# _73,, tmp297
-	cmp	DWORD PTR -112[rbp], 0	# %sfp,
-# segmented_sieve.c:232:         data[i].start_bit = i * blocks_per_thread * BLOCK_BITS;
-	mov	r14, QWORD PTR -136[rbp]	# tmp183, %sfp
-# segmented_sieve.c:236:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
+	cmp	DWORD PTR -108[rbp], 0	# %sfp,
+# segmented_sieve.c:230:         data[i].start_bit = i * blocks_per_thread * BLOCK_BITS;
+	mov	rbx, QWORD PTR -136[rbp]	# tmp184, %sfp
+# segmented_sieve.c:234:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
 	lea	rdx, SieveRange[rip]	#,
-	mov	QWORD PTR -120[rbp], r8	# %sfp, ivtmp.181
-# segmented_sieve.c:234:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
+# segmented_sieve.c:232:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
 	cmove	r15, r13	# tmp297,, _122, total_bits
-# segmented_sieve.c:232:         data[i].start_bit = i * blocks_per_thread * BLOCK_BITS;
+# segmented_sieve.c:230:         data[i].start_bit = i * blocks_per_thread * BLOCK_BITS;
 	xor	esi, esi	#
-# segmented_sieve.c:235:         data[i].base_primes = base_primes;
-	mov	QWORD PTR 16[r14], rdi	# MEM[(struct PrimeState * *)_129 + 16B], base_primes
-# segmented_sieve.c:232:         data[i].start_bit = i * blocks_per_thread * BLOCK_BITS;
-	mov	rcx, r14	# tmp183, tmp183
-	mov	QWORD PTR [r14], rsi	# MEM[(long unsigned int *)_129],
-# segmented_sieve.c:236:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
-	mov	rdi, rbx	#, tmp165
+# segmented_sieve.c:233:         data[i].base_primes = base_primes;
+	mov	QWORD PTR 16[rbx], rdi	# MEM[(struct PrimeState * *)_129 + 16B], base_primes
+# segmented_sieve.c:234:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
+	mov	rdi, QWORD PTR -128[rbp]	#, %sfp
+# segmented_sieve.c:230:         data[i].start_bit = i * blocks_per_thread * BLOCK_BITS;
+	mov	QWORD PTR [rbx], rsi	# MEM[(long unsigned int *)_129],
+	mov	rcx, rbx	# tmp184, tmp184
+# segmented_sieve.c:234:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
 	xor	esi, esi	#
-# segmented_sieve.c:233:         data[i].end_bit = (i == num_threads - 1) ? total_bits : (i + 1) * blocks_per_thread * BLOCK_BITS;
-	mov	QWORD PTR 8[r14], r15	# MEM[(long unsigned int *)_129 + 8B], _122
-	mov	r15d, 1	# ivtmp.187,
-	mov	QWORD PTR -160[rbp], r11	# %sfp, tmp238
-# segmented_sieve.c:236:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
+# segmented_sieve.c:231:         data[i].end_bit = (i == num_threads - 1) ? total_bits : (i + 1) * blocks_per_thread * BLOCK_BITS;
+	mov	QWORD PTR 8[rbx], r15	# MEM[(long unsigned int *)_129 + 8B], _122
+# segmented_sieve.c:229:     for (int i = 0; i < num_threads; i++) {
+	lea	r15, 32[rbx]	# ivtmp.190,
+# segmented_sieve.c:234:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
 	call	pthread_create@PLT	#
-	mov	r10, QWORD PTR -160[rbp]	# tmp238, %sfp
-# segmented_sieve.c:231:     for (int i = 0; i < num_threads; i++) {
-	mov	QWORD PTR -136[rbp], r14	# %sfp, tmp183
-	lea	r8, 8[rbx]	# ivtmp.191,
-	mov	QWORD PTR -128[rbp], rbx	# %sfp, tmp165
-	mov	rsi, QWORD PTR -120[rbp]	# ivtmp.181, %sfp
-	lea	r14, 32[r14]	# ivtmp.190,
+	mov	r10, QWORD PTR -120[rbp]	# tmp238, %sfp
+# segmented_sieve.c:229:     for (int i = 0; i < num_threads; i++) {
+	mov	rcx, QWORD PTR -128[rbp]	# tmp166, %sfp
+	mov	QWORD PTR -136[rbp], rbx	# %sfp, tmp184
+	mov	r9d, 1	# ivtmp.187,
 	lea	rbx, [r12+r12]	# ivtmp.193,
 	cmp	r10, 1	# tmp238,
+	lea	r8, 8[rcx]	# ivtmp.191,
 	je	.L450	#,
 	cmp	r10, 2	# tmp238,
 	je	.L436	#,
 	mov	r9, rbx	# _6, ivtmp.193
-# segmented_sieve.c:234:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
+# segmented_sieve.c:232:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
 	mov	rax, r13	# tmp301, total_bits
-# segmented_sieve.c:235:         data[i].base_primes = base_primes;
+# segmented_sieve.c:233:         data[i].base_primes = base_primes;
 	mov	rdx, QWORD PTR -104[rbp]	# base_primes, %sfp
-# segmented_sieve.c:236:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
-	mov	rcx, r14	#, ivtmp.190
+# segmented_sieve.c:234:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
+	mov	rcx, r15	#, ivtmp.190
 	sub	r9, r12	# _6, _73
-# segmented_sieve.c:234:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
+# segmented_sieve.c:232:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
 	cmp	rbx, r13	# ivtmp.193, total_bits
-# segmented_sieve.c:236:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
+# segmented_sieve.c:234:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
 	mov	rdi, r8	#, ivtmp.191
-	mov	r15d, 2	# ivtmp.187,
-# segmented_sieve.c:234:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
+# segmented_sieve.c:232:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
 	cmovbe	rax, rbx	# ivtmp.193,, tmp301
-	cmp	DWORD PTR -112[rbp], 1	# %sfp,
-# segmented_sieve.c:235:         data[i].base_primes = base_primes;
-	mov	QWORD PTR 16[r14], rdx	# MEM[(struct PrimeState * *)_129 + 16B], base_primes
-# segmented_sieve.c:236:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
+	cmp	DWORD PTR -108[rbp], 1	# %sfp,
+# segmented_sieve.c:230:         data[i].start_bit = i * blocks_per_thread * BLOCK_BITS;
+	mov	QWORD PTR [r15], r9	# MEM[(long unsigned int *)_129], _6
+# segmented_sieve.c:233:         data[i].base_primes = base_primes;
+	mov	QWORD PTR 16[r15], rdx	# MEM[(struct PrimeState * *)_129 + 16B], base_primes
+# segmented_sieve.c:234:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
 	lea	rdx, SieveRange[rip]	#,
-# segmented_sieve.c:232:         data[i].start_bit = i * blocks_per_thread * BLOCK_BITS;
-	mov	QWORD PTR [r14], r9	# MEM[(long unsigned int *)_129], _6
-# segmented_sieve.c:234:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
+# segmented_sieve.c:232:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
 	cmove	rax, r13	# tmp301,, _122, total_bits
-# segmented_sieve.c:236:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
+# segmented_sieve.c:234:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
 	xor	esi, esi	#
-# segmented_sieve.c:231:     for (int i = 0; i < num_threads; i++) {
+# segmented_sieve.c:229:     for (int i = 0; i < num_threads; i++) {
 	add	rbx, r12	# ivtmp.193, _73
-# segmented_sieve.c:233:         data[i].end_bit = (i == num_threads - 1) ? total_bits : (i + 1) * blocks_per_thread * BLOCK_BITS;
-	mov	QWORD PTR 8[r14], rax	# MEM[(long unsigned int *)_129 + 8B], _122
-# segmented_sieve.c:236:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
+# segmented_sieve.c:231:         data[i].end_bit = (i == num_threads - 1) ? total_bits : (i + 1) * blocks_per_thread * BLOCK_BITS;
+	mov	QWORD PTR 8[r15], rax	# MEM[(long unsigned int *)_129 + 8B], _122
+# segmented_sieve.c:234:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
 	call	pthread_create@PLT	#
-# segmented_sieve.c:231:     for (int i = 0; i < num_threads; i++) {
-	mov	r8, QWORD PTR -136[rbp]	# tmp183, %sfp
-	mov	r11, QWORD PTR -128[rbp]	# tmp165, %sfp
-	mov	rsi, QWORD PTR -120[rbp]	# ivtmp.181, %sfp
-	lea	r14, 64[r8]	# ivtmp.190,
+# segmented_sieve.c:229:     for (int i = 0; i < num_threads; i++) {
+	mov	r8, QWORD PTR -136[rbp]	# tmp184, %sfp
+	mov	r11, QWORD PTR -128[rbp]	# tmp166, %sfp
+	mov	r9d, 2	# ivtmp.187,
+	lea	r15, 64[r8]	# ivtmp.190,
 	lea	r8, 16[r11]	# ivtmp.191,
 .L436:
-	mov	rdi, rbx	# _6, ivtmp.193
-# segmented_sieve.c:234:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
-	mov	rcx, r13	# tmp305, total_bits
-# segmented_sieve.c:235:         data[i].base_primes = base_primes;
-	mov	r10, QWORD PTR -104[rbp]	# base_primes, %sfp
-# segmented_sieve.c:236:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
+	mov	rsi, rbx	# _6, ivtmp.193
+# segmented_sieve.c:232:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
+	mov	rdi, r13	# tmp305, total_bits
+# segmented_sieve.c:233:         data[i].base_primes = base_primes;
+	mov	rcx, QWORD PTR -104[rbp]	# base_primes, %sfp
+# segmented_sieve.c:234:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
 	mov	QWORD PTR -120[rbp], r8	# %sfp, ivtmp.191
-	sub	rdi, r12	# _6, _73
-# segmented_sieve.c:234:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
+	sub	rsi, r12	# _6, _73
+# segmented_sieve.c:232:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
 	cmp	rbx, r13	# ivtmp.193, total_bits
-	mov	QWORD PTR -160[rbp], rsi	# %sfp, ivtmp.181
-# segmented_sieve.c:236:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
+# segmented_sieve.c:234:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
 	lea	rdx, SieveRange[rip]	#,
-# segmented_sieve.c:234:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
-	cmovbe	rcx, rbx	# ivtmp.193,, tmp305
-	cmp	DWORD PTR -112[rbp], r15d	# %sfp, ivtmp.187
-# segmented_sieve.c:232:         data[i].start_bit = i * blocks_per_thread * BLOCK_BITS;
-	mov	QWORD PTR [r14], rdi	# MEM[(long unsigned int *)_129], _6
-# segmented_sieve.c:236:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
-	mov	rdi, r8	#, ivtmp.191
-# segmented_sieve.c:235:         data[i].base_primes = base_primes;
-	mov	QWORD PTR 16[r14], r10	# MEM[(struct PrimeState * *)_129 + 16B], base_primes
-# segmented_sieve.c:234:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
-	cmove	rcx, r13	# tmp305,, _122, total_bits
-# segmented_sieve.c:236:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
+# segmented_sieve.c:232:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
+	mov	QWORD PTR -160[rbp], r9	# %sfp, ivtmp.187
+	cmovbe	rdi, rbx	# ivtmp.193,, tmp305
+	cmp	DWORD PTR -108[rbp], r9d	# %sfp, ivtmp.187
+# segmented_sieve.c:230:         data[i].start_bit = i * blocks_per_thread * BLOCK_BITS;
+	mov	QWORD PTR [r15], rsi	# MEM[(long unsigned int *)_129], _6
+# segmented_sieve.c:233:         data[i].base_primes = base_primes;
+	mov	QWORD PTR 16[r15], rcx	# MEM[(struct PrimeState * *)_129 + 16B], base_primes
+# segmented_sieve.c:234:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
+	mov	rcx, r15	#, ivtmp.190
+# segmented_sieve.c:232:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
+	cmove	rdi, r13	# tmp305,, _122, total_bits
+# segmented_sieve.c:234:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
 	xor	esi, esi	#
-# segmented_sieve.c:231:     for (int i = 0; i < num_threads; i++) {
+# segmented_sieve.c:229:     for (int i = 0; i < num_threads; i++) {
+	add	r15, 32	# ivtmp.190,
 	add	rbx, r12	# ivtmp.193, _73
-	add	r15, 1	# ivtmp.187,
-# segmented_sieve.c:233:         data[i].end_bit = (i == num_threads - 1) ? total_bits : (i + 1) * blocks_per_thread * BLOCK_BITS;
-	mov	QWORD PTR 8[r14], rcx	# MEM[(long unsigned int *)_129 + 8B], _122
-# segmented_sieve.c:236:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
-	mov	rcx, r14	#, ivtmp.190
-# segmented_sieve.c:231:     for (int i = 0; i < num_threads; i++) {
-	add	r14, 32	# ivtmp.190,
-# segmented_sieve.c:236:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
+# segmented_sieve.c:231:         data[i].end_bit = (i == num_threads - 1) ? total_bits : (i + 1) * blocks_per_thread * BLOCK_BITS;
+	mov	QWORD PTR -24[r15], rdi	# MEM[(long unsigned int *)_129 + 8B], _122
+# segmented_sieve.c:234:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
+	mov	rdi, r8	#, ivtmp.191
 	call	pthread_create@PLT	#
-# segmented_sieve.c:231:     for (int i = 0; i < num_threads; i++) {
-	mov	r9, QWORD PTR -120[rbp]	# ivtmp.191, %sfp
-	mov	rax, r12	# _73, _73
+# segmented_sieve.c:229:     for (int i = 0; i < num_threads; i++) {
+	mov	r8, QWORD PTR -120[rbp]	# ivtmp.191, %sfp
+	mov	r9, QWORD PTR -160[rbp]	# ivtmp.187, %sfp
+	add	r8, 8	# ivtmp.191,
+	add	r9, 1	# ivtmp.187,
+.L450:
+	mov	r10, r12	# _73, _73
+	mov	QWORD PTR -160[rbp], r14	# %sfp, ivtmp.181
 	mov	r11, rbx	# ivtmp.193, ivtmp.193
-	mov	rbx, r14	# ivtmp.190, ivtmp.190
-	mov	r14, r13	# total_bits, total_bits
-	mov	r13, rax	# _73, _73
-	add	r9, 8	# ivtmp.191,
-	mov	r12, r9	# ivtmp.191, ivtmp.191
+	mov	r12, r8	# ivtmp.191, ivtmp.191
+	mov	rbx, r15	# ivtmp.190, ivtmp.190
+	mov	r14, r9	# ivtmp.187, ivtmp.187
+	mov	r15, r13	# total_bits, total_bits
+	mov	r13, r10	# _73, _73
 	jmp	.L402	#
 	.p2align 4,,10
 	.p2align 3
 .L409:
-	mov	r11, r9	# _6, ivtmp.193
-# segmented_sieve.c:234:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
-	mov	rax, r14	# tmp227, total_bits
-# segmented_sieve.c:236:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
+	mov	r10, r8	# _6, ivtmp.193
+# segmented_sieve.c:232:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
+	mov	r11, r15	# tmp227, total_bits
+# segmented_sieve.c:234:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
 	lea	rdx, SieveRange[rip]	#,
-# segmented_sieve.c:234:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
-	mov	QWORD PTR -120[rbp], r9	# %sfp, ivtmp.193
-	sub	r11, r13	# _6, _73
-	cmp	r9, r14	# ivtmp.193, total_bits
-	cmovbe	rax, r9	# ivtmp.193,, tmp227
-	cmp	DWORD PTR -112[rbp], r10d	# %sfp, ivtmp.187
-# segmented_sieve.c:235:         data[i].base_primes = base_primes;
-	mov	r10, QWORD PTR -104[rbp]	# base_primes, %sfp
-# segmented_sieve.c:232:         data[i].start_bit = i * blocks_per_thread * BLOCK_BITS;
-	mov	QWORD PTR 32[rbx], r11	# MEM[(long unsigned int *)_129], _6
-# segmented_sieve.c:234:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
-	cmove	rax, r14	# tmp227,, _122, total_bits
-# segmented_sieve.c:235:         data[i].base_primes = base_primes;
-	mov	QWORD PTR 16[rcx], r10	# MEM[(struct PrimeState * *)_129 + 16B], base_primes
-# segmented_sieve.c:236:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
+# segmented_sieve.c:232:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
+	mov	QWORD PTR -120[rbp], r8	# %sfp, ivtmp.193
+	sub	r10, r13	# _6, _73
+	cmp	r8, r15	# ivtmp.193, total_bits
+	cmovbe	r11, r8	# ivtmp.193,, tmp227
+	cmp	DWORD PTR -108[rbp], r9d	# %sfp, ivtmp.187
+# segmented_sieve.c:233:         data[i].base_primes = base_primes;
+	mov	r9, QWORD PTR -104[rbp]	# base_primes, %sfp
+# segmented_sieve.c:230:         data[i].start_bit = i * blocks_per_thread * BLOCK_BITS;
+	mov	QWORD PTR 32[rbx], r10	# MEM[(long unsigned int *)_129], _6
+# segmented_sieve.c:232:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
+	cmove	r11, r15	# tmp227,, _122, total_bits
+# segmented_sieve.c:233:         data[i].base_primes = base_primes;
+	mov	QWORD PTR 16[rcx], r9	# MEM[(struct PrimeState * *)_129 + 16B], base_primes
+# segmented_sieve.c:234:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
 	xor	esi, esi	#
-# segmented_sieve.c:233:         data[i].end_bit = (i == num_threads - 1) ? total_bits : (i + 1) * blocks_per_thread * BLOCK_BITS;
-	mov	QWORD PTR 8[rcx], rax	# MEM[(long unsigned int *)_129 + 8B], _122
-# segmented_sieve.c:236:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
+# segmented_sieve.c:231:         data[i].end_bit = (i == num_threads - 1) ? total_bits : (i + 1) * blocks_per_thread * BLOCK_BITS;
+	mov	QWORD PTR 8[rcx], r11	# MEM[(long unsigned int *)_129 + 8B], _122
+# segmented_sieve.c:234:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
 	call	pthread_create@PLT	#
-# segmented_sieve.c:231:     for (int i = 0; i < num_threads; i++) {
-	mov	r9, QWORD PTR -120[rbp]	# ivtmp.193, %sfp
-# segmented_sieve.c:234:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
-	mov	rax, r14	# tmp255, total_bits
-	lea	rdx, 2[r15]	# ivtmp.187,
-# segmented_sieve.c:235:         data[i].base_primes = base_primes;
-	mov	rsi, QWORD PTR -104[rbp]	# base_primes, %sfp
-# segmented_sieve.c:231:     for (int i = 0; i < num_threads; i++) {
+# segmented_sieve.c:229:     for (int i = 0; i < num_threads; i++) {
+	mov	r8, QWORD PTR -120[rbp]	# ivtmp.193, %sfp
+# segmented_sieve.c:232:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
+	mov	rsi, r15	# tmp255, total_bits
+	lea	rdx, 2[r14]	# ivtmp.187,
+# segmented_sieve.c:233:         data[i].base_primes = base_primes;
+	mov	r10, QWORD PTR -104[rbp]	# base_primes, %sfp
+# segmented_sieve.c:229:     for (int i = 0; i < num_threads; i++) {
 	lea	rcx, 64[rbx]	# ivtmp.190,
 	lea	rdi, 16[r12]	# ivtmp.191,
-	lea	r8, [r9+r13]	# ivtmp.193,
-# segmented_sieve.c:232:         data[i].start_bit = i * blocks_per_thread * BLOCK_BITS;
-	mov	QWORD PTR 64[rbx], r9	# MEM[(long unsigned int *)_129], ivtmp.193
-# segmented_sieve.c:234:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
-	cmp	r8, r14	# ivtmp.193, total_bits
-# segmented_sieve.c:235:         data[i].base_primes = base_primes;
-	mov	QWORD PTR 16[rcx], rsi	# MEM[(struct PrimeState * *)_129 + 16B], base_primes
-# segmented_sieve.c:234:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
-	cmovbe	rax, r8	# ivtmp.193,, tmp255
-	cmp	DWORD PTR -112[rbp], edx	# %sfp, ivtmp.187
-# segmented_sieve.c:236:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
+	lea	rax, [r8+r13]	# ivtmp.193,
+# segmented_sieve.c:230:         data[i].start_bit = i * blocks_per_thread * BLOCK_BITS;
+	mov	QWORD PTR 64[rbx], r8	# MEM[(long unsigned int *)_129], ivtmp.193
+# segmented_sieve.c:232:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
+	cmp	rax, r15	# ivtmp.193, total_bits
+# segmented_sieve.c:233:         data[i].base_primes = base_primes;
+	mov	QWORD PTR 16[rcx], r10	# MEM[(struct PrimeState * *)_129 + 16B], base_primes
+# segmented_sieve.c:232:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
+	cmovbe	rsi, rax	# ivtmp.193,, tmp255
+	cmp	DWORD PTR -108[rbp], edx	# %sfp, ivtmp.187
+# segmented_sieve.c:234:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
 	lea	rdx, SieveRange[rip]	#,
-# segmented_sieve.c:234:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
-	mov	QWORD PTR -120[rbp], r8	# %sfp, ivtmp.193
-	cmove	rax, r14	# tmp255,, _122, total_bits
-# segmented_sieve.c:236:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
+# segmented_sieve.c:232:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
+	mov	QWORD PTR -120[rbp], rax	# %sfp, ivtmp.193
+	cmove	rsi, r15	# tmp255,, _122, total_bits
+# segmented_sieve.c:231:         data[i].end_bit = (i == num_threads - 1) ? total_bits : (i + 1) * blocks_per_thread * BLOCK_BITS;
+	mov	QWORD PTR 8[rcx], rsi	# MEM[(long unsigned int *)_129 + 8B], _122
+# segmented_sieve.c:234:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
 	xor	esi, esi	#
-# segmented_sieve.c:233:         data[i].end_bit = (i == num_threads - 1) ? total_bits : (i + 1) * blocks_per_thread * BLOCK_BITS;
-	mov	QWORD PTR 8[rcx], rax	# MEM[(long unsigned int *)_129 + 8B], _122
-# segmented_sieve.c:236:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
 	call	pthread_create@PLT	#
-# segmented_sieve.c:231:     for (int i = 0; i < num_threads; i++) {
+# segmented_sieve.c:229:     for (int i = 0; i < num_threads; i++) {
 	mov	r11, QWORD PTR -120[rbp]	# ivtmp.193, %sfp
-# segmented_sieve.c:234:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
-	mov	rax, r14	# tmp263, total_bits
-	lea	r9, 3[r15]	# ivtmp.187,
-# segmented_sieve.c:235:         data[i].base_primes = base_primes;
-	mov	r8, QWORD PTR -104[rbp]	# base_primes, %sfp
-# segmented_sieve.c:231:     for (int i = 0; i < num_threads; i++) {
+# segmented_sieve.c:232:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
+	mov	rax, r15	# tmp263, total_bits
+	lea	r8, 3[r14]	# ivtmp.187,
+# segmented_sieve.c:233:         data[i].base_primes = base_primes;
+	mov	rdx, QWORD PTR -104[rbp]	# base_primes, %sfp
+# segmented_sieve.c:229:     for (int i = 0; i < num_threads; i++) {
 	lea	rcx, 96[rbx]	# ivtmp.190,
 	lea	rdi, 24[r12]	# ivtmp.191,
-	lea	r10, [r11+r13]	# ivtmp.193,
-# segmented_sieve.c:232:         data[i].start_bit = i * blocks_per_thread * BLOCK_BITS;
+	lea	r9, [r11+r13]	# ivtmp.193,
+# segmented_sieve.c:230:         data[i].start_bit = i * blocks_per_thread * BLOCK_BITS;
 	mov	QWORD PTR 96[rbx], r11	# MEM[(long unsigned int *)_129], ivtmp.193
-# segmented_sieve.c:236:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
+# segmented_sieve.c:232:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
+	cmp	r9, r15	# ivtmp.193, total_bits
+# segmented_sieve.c:233:         data[i].base_primes = base_primes;
+	mov	QWORD PTR 16[rcx], rdx	# MEM[(struct PrimeState * *)_129 + 16B], base_primes
+# segmented_sieve.c:234:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
 	lea	rdx, SieveRange[rip]	#,
-# segmented_sieve.c:234:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
-	cmp	r10, r14	# ivtmp.193, total_bits
-# segmented_sieve.c:235:         data[i].base_primes = base_primes;
-	mov	QWORD PTR 16[rcx], r8	# MEM[(struct PrimeState * *)_129 + 16B], base_primes
-# segmented_sieve.c:234:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
-	cmovbe	rax, r10	# ivtmp.193,, tmp263
-	cmp	DWORD PTR -112[rbp], r9d	# %sfp, ivtmp.187
-	mov	QWORD PTR -120[rbp], r10	# %sfp, ivtmp.193
-	cmove	rax, r14	# tmp263,, _122, total_bits
-# segmented_sieve.c:236:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
+# segmented_sieve.c:232:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
+	cmovbe	rax, r9	# ivtmp.193,, tmp263
+	cmp	DWORD PTR -108[rbp], r8d	# %sfp, ivtmp.187
+	mov	QWORD PTR -120[rbp], r9	# %sfp, ivtmp.193
+	cmove	rax, r15	# tmp263,, _122, total_bits
+# segmented_sieve.c:234:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
 	xor	esi, esi	#
-# segmented_sieve.c:231:     for (int i = 0; i < num_threads; i++) {
+# segmented_sieve.c:229:     for (int i = 0; i < num_threads; i++) {
 	sub	rbx, -128	# ivtmp.190,
 	add	r12, 32	# ivtmp.191,
-	add	r15, 4	# ivtmp.187,
-# segmented_sieve.c:233:         data[i].end_bit = (i == num_threads - 1) ? total_bits : (i + 1) * blocks_per_thread * BLOCK_BITS;
+	add	r14, 4	# ivtmp.187,
+# segmented_sieve.c:231:         data[i].end_bit = (i == num_threads - 1) ? total_bits : (i + 1) * blocks_per_thread * BLOCK_BITS;
 	mov	QWORD PTR 8[rcx], rax	# MEM[(long unsigned int *)_129 + 8B], _122
-# segmented_sieve.c:236:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
+# segmented_sieve.c:234:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
 	call	pthread_create@PLT	#
-# segmented_sieve.c:231:     for (int i = 0; i < num_threads; i++) {
+# segmented_sieve.c:229:     for (int i = 0; i < num_threads; i++) {
 	mov	r11, QWORD PTR -120[rbp]	# ivtmp.193, %sfp
 	add	r11, r13	# ivtmp.193, _73
 .L402:
 	mov	rdx, r11	# _6, ivtmp.193
-# segmented_sieve.c:234:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
-	mov	r8, r14	# tmp267, total_bits
-# segmented_sieve.c:235:         data[i].base_primes = base_primes;
+# segmented_sieve.c:232:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
+	mov	rax, r15	# tmp267, total_bits
+# segmented_sieve.c:233:         data[i].base_primes = base_primes;
 	mov	rsi, QWORD PTR -104[rbp]	# base_primes, %sfp
-# segmented_sieve.c:236:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
+# segmented_sieve.c:234:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
 	mov	rcx, rbx	#, ivtmp.190
 	sub	rdx, r13	# _6, _73
-# segmented_sieve.c:234:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
-	cmp	r11, r14	# ivtmp.193, total_bits
-# segmented_sieve.c:236:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
+# segmented_sieve.c:232:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
+	cmp	r11, r15	# ivtmp.193, total_bits
+# segmented_sieve.c:234:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
 	mov	rdi, r12	#, ivtmp.191
-# segmented_sieve.c:234:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
+# segmented_sieve.c:232:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
 	mov	QWORD PTR -120[rbp], r11	# %sfp, ivtmp.193
-	cmovbe	r8, r11	# ivtmp.193,, tmp267
-	cmp	DWORD PTR -112[rbp], r15d	# %sfp, ivtmp.187
-# segmented_sieve.c:232:         data[i].start_bit = i * blocks_per_thread * BLOCK_BITS;
+	cmovbe	rax, r11	# ivtmp.193,, tmp267
+	cmp	DWORD PTR -108[rbp], r14d	# %sfp, ivtmp.187
+# segmented_sieve.c:230:         data[i].start_bit = i * blocks_per_thread * BLOCK_BITS;
 	mov	QWORD PTR [rbx], rdx	# MEM[(long unsigned int *)_129], _6
-# segmented_sieve.c:236:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
+# segmented_sieve.c:234:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
 	lea	rdx, SieveRange[rip]	#,
-# segmented_sieve.c:235:         data[i].base_primes = base_primes;
+# segmented_sieve.c:233:         data[i].base_primes = base_primes;
 	mov	QWORD PTR 16[rbx], rsi	# MEM[(struct PrimeState * *)_129 + 16B], base_primes
-# segmented_sieve.c:234:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
-	cmove	r8, r14	# tmp267,, _122, total_bits
-# segmented_sieve.c:236:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
+# segmented_sieve.c:232:         if (data[i].end_bit > total_bits) data[i].end_bit = total_bits;
+	cmove	rax, r15	# tmp267,, _122, total_bits
+# segmented_sieve.c:234:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
 	xor	esi, esi	#
-# segmented_sieve.c:233:         data[i].end_bit = (i == num_threads - 1) ? total_bits : (i + 1) * blocks_per_thread * BLOCK_BITS;
-	mov	QWORD PTR 8[rbx], r8	# MEM[(long unsigned int *)_129 + 8B], _122
-# segmented_sieve.c:236:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
+# segmented_sieve.c:231:         data[i].end_bit = (i == num_threads - 1) ? total_bits : (i + 1) * blocks_per_thread * BLOCK_BITS;
+	mov	QWORD PTR 8[rbx], rax	# MEM[(long unsigned int *)_129 + 8B], _122
+# segmented_sieve.c:234:         pthread_create(&threads[i], NULL, SieveRange, &data[i]);
 	call	pthread_create@PLT	#
-# segmented_sieve.c:231:     for (int i = 0; i < num_threads; i++) {
-	mov	r9, QWORD PTR -120[rbp]	# ivtmp.193, %sfp
-	mov	rax, QWORD PTR -144[rbp]	# _137, %sfp
-	lea	r10, 1[r15]	# ivtmp.187,
+# segmented_sieve.c:229:     for (int i = 0; i < num_threads; i++) {
+	mov	r8, QWORD PTR -120[rbp]	# ivtmp.193, %sfp
+	mov	r10, QWORD PTR -144[rbp]	# _137, %sfp
+	lea	r9, 1[r14]	# ivtmp.187,
 	lea	rcx, 32[rbx]	# tmp239,
 	lea	rdi, 8[r12]	# tmp240,
-	add	r9, r13	# ivtmp.193, _73
-	cmp	r15, rax	# ivtmp.187, _137
+	add	r8, r13	# ivtmp.193, _73
+	cmp	r14, r10	# ivtmp.187, _137
 	jne	.L409	#,
-	mov	rcx, QWORD PTR -128[rbp]	# tmp165, %sfp
-	mov	rdi, QWORD PTR -136[rbp]	# tmp183, %sfp
-# segmented_sieve.c:239:     uint64_t total_primes = 1; // Count 2
+	mov	r11, QWORD PTR -128[rbp]	# tmp166, %sfp
+	mov	rcx, r14	# ivtmp.187, ivtmp.187
+# segmented_sieve.c:237:     uint64_t total_primes = 1; // Count 2
 	mov	ebx, 1	# total_primes,
-	mov	rdx, QWORD PTR -160[rbp]	# ivtmp.181, %sfp
-	lea	r13, 8[rcx]	# tmp204,
-	lea	r14, 24[rdi]	# ivtmp.182,
-	lea	r15, 0[r13+r15*8]	# _125,
-	mov	r12, r15	# tmp231, _125
-	sub	r12, rcx	# tmp231, tmp165
-	sub	r12, 8	# tmp232,
-	shr	r12, 3	# tmp230,
-	add	r12, 1	# tmp233,
-	and	r12d, 3	# tmp234,
-	je	.L449	#,
-	cmp	r12, 1	# tmp234,
+	mov	rdi, QWORD PTR -136[rbp]	# tmp184, %sfp
+	mov	r14, QWORD PTR -160[rbp]	# ivtmp.181, %sfp
+	lea	r15, 8[r11]	# tmp204,
+	lea	r13, 24[rdi]	# ivtmp.182,
+	lea	r12, [r15+rcx*8]	# _125,
+	mov	rdx, r12	# tmp231, _125
+	sub	rdx, r11	# tmp231, tmp166
+	sub	rdx, 8	# tmp232,
+	shr	rdx, 3	# tmp230,
+	add	rdx, 1	# tmp233,
+	and	edx, 3	# tmp234,
+	je	.L403	#,
+	cmp	rdx, 1	# tmp234,
 	je	.L434	#,
-	cmp	r12, 2	# tmp234,
+	cmp	rdx, 2	# tmp234,
 	je	.L435	#,
-# segmented_sieve.c:241:         pthread_join(threads[i], NULL);
-	mov	r11, QWORD PTR -128[rbp]	# tmp165, %sfp
+# segmented_sieve.c:239:         pthread_join(threads[i], NULL);
+	mov	rbx, QWORD PTR -128[rbp]	# tmp166, %sfp
 	xor	esi, esi	#
-	mov	rdi, QWORD PTR [r11]	# MEM[(long unsigned int *)_114], MEM[(long unsigned int *)_114]
+# segmented_sieve.c:238:     for (int i = 0; i < num_threads; i++) {
+	mov	r14, r15	# ivtmp.181, tmp204
+# segmented_sieve.c:239:         pthread_join(threads[i], NULL);
+	mov	rdi, QWORD PTR [rbx]	# MEM[(long unsigned int *)_114], MEM[(long unsigned int *)_114]
 	call	pthread_join@PLT	#
-# segmented_sieve.c:242:         total_primes += data[i].thread_total;
-	mov	rbx, QWORD PTR [r14]	# MEM[(long unsigned int *)_115], MEM[(long unsigned int *)_115]
-# segmented_sieve.c:240:     for (int i = 0; i < num_threads; i++) {
-	mov	r14, QWORD PTR -136[rbp]	# tmp183, %sfp
-	mov	rdx, r13	# ivtmp.181, tmp204
-# segmented_sieve.c:242:         total_primes += data[i].thread_total;
+# segmented_sieve.c:240:         total_primes += data[i].thread_total;
+	mov	rbx, QWORD PTR 0[r13]	# MEM[(long unsigned int *)_115], MEM[(long unsigned int *)_115]
+# segmented_sieve.c:238:     for (int i = 0; i < num_threads; i++) {
+	mov	r13, QWORD PTR -136[rbp]	# tmp184, %sfp
+# segmented_sieve.c:240:         total_primes += data[i].thread_total;
 	add	rbx, 1	# total_primes,
-# segmented_sieve.c:240:     for (int i = 0; i < num_threads; i++) {
-	add	r14, 56	# tmp183,
+# segmented_sieve.c:238:     for (int i = 0; i < num_threads; i++) {
+	add	r13, 56	# tmp184,
 .L435:
-# segmented_sieve.c:241:         pthread_join(threads[i], NULL);
-	mov	rdi, QWORD PTR [rdx]	# MEM[(long unsigned int *)_114], MEM[(long unsigned int *)_114]
+# segmented_sieve.c:239:         pthread_join(threads[i], NULL);
+	mov	rdi, QWORD PTR [r14]	# MEM[(long unsigned int *)_114], MEM[(long unsigned int *)_114]
 	xor	esi, esi	#
-	mov	QWORD PTR -112[rbp], rdx	# %sfp, ivtmp.181
-# segmented_sieve.c:240:     for (int i = 0; i < num_threads; i++) {
-	add	r14, 32	# ivtmp.182,
-# segmented_sieve.c:241:         pthread_join(threads[i], NULL);
+# segmented_sieve.c:238:     for (int i = 0; i < num_threads; i++) {
+	add	r14, 8	# ivtmp.181,
+	add	r13, 32	# ivtmp.182,
+# segmented_sieve.c:239:         pthread_join(threads[i], NULL);
 	call	pthread_join@PLT	#
-# segmented_sieve.c:240:     for (int i = 0; i < num_threads; i++) {
-	mov	rdx, QWORD PTR -112[rbp]	# ivtmp.181, %sfp
-# segmented_sieve.c:242:         total_primes += data[i].thread_total;
-	add	rbx, QWORD PTR -32[r14]	# total_primes, MEM[(long unsigned int *)_115]
-# segmented_sieve.c:240:     for (int i = 0; i < num_threads; i++) {
-	add	rdx, 8	# ivtmp.181,
+# segmented_sieve.c:240:         total_primes += data[i].thread_total;
+	add	rbx, QWORD PTR -32[r13]	# total_primes, MEM[(long unsigned int *)_115]
 .L434:
-# segmented_sieve.c:241:         pthread_join(threads[i], NULL);
-	mov	rdi, QWORD PTR [rdx]	# MEM[(long unsigned int *)_114], MEM[(long unsigned int *)_114]
+# segmented_sieve.c:239:         pthread_join(threads[i], NULL);
+	mov	rdi, QWORD PTR [r14]	# MEM[(long unsigned int *)_114], MEM[(long unsigned int *)_114]
 	xor	esi, esi	#
-	mov	QWORD PTR -112[rbp], rdx	# %sfp, ivtmp.181
-# segmented_sieve.c:240:     for (int i = 0; i < num_threads; i++) {
-	add	r14, 32	# ivtmp.182,
-# segmented_sieve.c:241:         pthread_join(threads[i], NULL);
+# segmented_sieve.c:238:     for (int i = 0; i < num_threads; i++) {
+	add	r14, 8	# ivtmp.181,
+	add	r13, 32	# ivtmp.182,
+# segmented_sieve.c:239:         pthread_join(threads[i], NULL);
 	call	pthread_join@PLT	#
-# segmented_sieve.c:240:     for (int i = 0; i < num_threads; i++) {
-	mov	rdx, QWORD PTR -112[rbp]	# ivtmp.181, %sfp
-# segmented_sieve.c:242:         total_primes += data[i].thread_total;
-	add	rbx, QWORD PTR -32[r14]	# total_primes, MEM[(long unsigned int *)_115]
-# segmented_sieve.c:240:     for (int i = 0; i < num_threads; i++) {
-	add	rdx, 8	# ivtmp.181,
-	cmp	rdx, r15	# ivtmp.181, _125
+# segmented_sieve.c:240:         total_primes += data[i].thread_total;
+	add	rbx, QWORD PTR -32[r13]	# total_primes, MEM[(long unsigned int *)_115]
+# segmented_sieve.c:238:     for (int i = 0; i < num_threads; i++) {
+	cmp	r14, r12	# ivtmp.181, _125
 	je	.L400	#,
-.L449:
-	mov	r13, rdx	# ivtmp.181, ivtmp.181
 .L403:
-# segmented_sieve.c:241:         pthread_join(threads[i], NULL);
-	mov	rdi, QWORD PTR 0[r13]	# MEM[(long unsigned int *)_114], MEM[(long unsigned int *)_114]
+# segmented_sieve.c:239:         pthread_join(threads[i], NULL);
+	mov	rdi, QWORD PTR [r14]	# MEM[(long unsigned int *)_114], MEM[(long unsigned int *)_114]
 	xor	esi, esi	#
-# segmented_sieve.c:240:     for (int i = 0; i < num_threads; i++) {
-	add	r13, 32	# ivtmp.181,
-	sub	r14, -128	# ivtmp.182,
-# segmented_sieve.c:241:         pthread_join(threads[i], NULL);
+# segmented_sieve.c:238:     for (int i = 0; i < num_threads; i++) {
+	add	r14, 32	# ivtmp.181,
+	sub	r13, -128	# ivtmp.182,
+# segmented_sieve.c:239:         pthread_join(threads[i], NULL);
 	call	pthread_join@PLT	#
-	mov	rdi, QWORD PTR -24[r13]	# MEM[(long unsigned int *)_114], MEM[(long unsigned int *)_114]
+	mov	rdi, QWORD PTR -24[r14]	# MEM[(long unsigned int *)_114], MEM[(long unsigned int *)_114]
 	xor	esi, esi	#
-# segmented_sieve.c:242:         total_primes += data[i].thread_total;
-	add	rbx, QWORD PTR -128[r14]	# tmp208, MEM[(long unsigned int *)_115]
-# segmented_sieve.c:241:         pthread_join(threads[i], NULL);
+# segmented_sieve.c:240:         total_primes += data[i].thread_total;
+	add	rbx, QWORD PTR -128[r13]	# tmp208, MEM[(long unsigned int *)_115]
+# segmented_sieve.c:239:         pthread_join(threads[i], NULL);
 	call	pthread_join@PLT	#
-	mov	rdi, QWORD PTR -16[r13]	# MEM[(long unsigned int *)_114], MEM[(long unsigned int *)_114]
+	mov	rdi, QWORD PTR -16[r14]	# MEM[(long unsigned int *)_114], MEM[(long unsigned int *)_114]
 	xor	esi, esi	#
-# segmented_sieve.c:242:         total_primes += data[i].thread_total;
-	add	rbx, QWORD PTR -96[r14]	# tmp274, MEM[(long unsigned int *)_115]
-# segmented_sieve.c:241:         pthread_join(threads[i], NULL);
+# segmented_sieve.c:240:         total_primes += data[i].thread_total;
+	add	rbx, QWORD PTR -96[r13]	# tmp274, MEM[(long unsigned int *)_115]
+# segmented_sieve.c:239:         pthread_join(threads[i], NULL);
 	call	pthread_join@PLT	#
-	mov	rdi, QWORD PTR -8[r13]	# MEM[(long unsigned int *)_114], MEM[(long unsigned int *)_114]
+	mov	rdi, QWORD PTR -8[r14]	# MEM[(long unsigned int *)_114], MEM[(long unsigned int *)_114]
 	xor	esi, esi	#
-# segmented_sieve.c:242:         total_primes += data[i].thread_total;
-	add	rbx, QWORD PTR -64[r14]	# tmp280, MEM[(long unsigned int *)_115]
-# segmented_sieve.c:241:         pthread_join(threads[i], NULL);
+# segmented_sieve.c:240:         total_primes += data[i].thread_total;
+	add	rbx, QWORD PTR -64[r13]	# tmp280, MEM[(long unsigned int *)_115]
+# segmented_sieve.c:239:         pthread_join(threads[i], NULL);
 	call	pthread_join@PLT	#
-# segmented_sieve.c:242:         total_primes += data[i].thread_total;
-	add	rbx, QWORD PTR -32[r14]	# total_primes, MEM[(long unsigned int *)_115]
-# segmented_sieve.c:240:     for (int i = 0; i < num_threads; i++) {
-	cmp	r13, r15	# ivtmp.181, _125
+# segmented_sieve.c:240:         total_primes += data[i].thread_total;
+	add	rbx, QWORD PTR -32[r13]	# total_primes, MEM[(long unsigned int *)_115]
+# segmented_sieve.c:238:     for (int i = 0; i < num_threads; i++) {
+	cmp	r14, r12	# ivtmp.181, _125
 	jne	.L403	#,
 .L400:
-# segmented_sieve.c:245:     clock_gettime(CLOCK_REALTIME, &end);
+# segmented_sieve.c:243:     clock_gettime(CLOCK_REALTIME, &end);
 	lea	rsi, -80[rbp]	# tmp210,
 	xor	edi, edi	#
 	call	clock_gettime@PLT	#
 # segmented_sieve.c:80:     struct timespec diff = {.tv_sec = time1->tv_sec - time0->tv_sec, .tv_nsec = time1->tv_nsec - time0->tv_nsec};
-	mov	r8, QWORD PTR -80[rbp]	# end.tv_sec, end.tv_sec
+	mov	rsi, QWORD PTR -80[rbp]	# end.tv_sec, end.tv_sec
 # segmented_sieve.c:80:     struct timespec diff = {.tv_sec = time1->tv_sec - time0->tv_sec, .tv_nsec = time1->tv_nsec - time0->tv_nsec};
-	mov	rsi, QWORD PTR -72[rbp]	# end.tv_nsec, end.tv_nsec
+	mov	rax, QWORD PTR -72[rbp]	# end.tv_nsec, end.tv_nsec
 # segmented_sieve.c:80:     struct timespec diff = {.tv_sec = time1->tv_sec - time0->tv_sec, .tv_nsec = time1->tv_nsec - time0->tv_nsec};
-	sub	r8, QWORD PTR -96[rbp]	# diff$tv_sec, begin.tv_sec
+	sub	rsi, QWORD PTR -96[rbp]	# diff$tv_sec, begin.tv_sec
 # segmented_sieve.c:81:     if (diff.tv_nsec < 0) { diff.tv_nsec += 1000000000; diff.tv_sec--; }
-	sub	rsi, QWORD PTR -88[rbp]	# diff$tv_nsec, begin.tv_nsec
+	sub	rax, QWORD PTR -88[rbp]	# diff$tv_nsec, begin.tv_nsec
 	jns	.L404	#,
 # segmented_sieve.c:81:     if (diff.tv_nsec < 0) { diff.tv_nsec += 1000000000; diff.tv_sec--; }
-	add	rsi, 1000000000	# diff$tv_nsec,
+	add	rax, 1000000000	# diff$tv_nsec,
 # segmented_sieve.c:81:     if (diff.tv_nsec < 0) { diff.tv_nsec += 1000000000; diff.tv_sec--; }
-	sub	r8, 1	# diff$tv_sec,
+	sub	rsi, 1	# diff$tv_sec,
 .L404:
-# segmented_sieve.c:247:     printf("Time = %0.5f seconds\n", diff.tv_sec + (diff.tv_nsec / 1e9));
+# segmented_sieve.c:245:     printf("Time = %0.5f seconds\n", diff.tv_sec + (diff.tv_nsec / 1e9));
 	vxorpd	xmm6, xmm6, xmm6	# tmp391
 # /usr/include/x86_64-linux-gnu/bits/stdio2.h:86:   return __printf_chk (__USE_FORTIFY_LEVEL - 1, __fmt, __va_arg_pack ());
 	mov	edi, 2	#,
-	mov	eax, 1	#,
-# segmented_sieve.c:247:     printf("Time = %0.5f seconds\n", diff.tv_sec + (diff.tv_nsec / 1e9));
-	vcvtsi2sd	xmm9, xmm6, r8	# tmp318, tmp392, diff$tv_sec
-# segmented_sieve.c:247:     printf("Time = %0.5f seconds\n", diff.tv_sec + (diff.tv_nsec / 1e9));
-	vcvtsi2sd	xmm7, xmm6, rsi	# tmp317, tmp391, diff$tv_nsec
-	vdivsd	xmm8, xmm7, QWORD PTR .LC7[rip]	# tmp214, tmp213,
+# segmented_sieve.c:245:     printf("Time = %0.5f seconds\n", diff.tv_sec + (diff.tv_nsec / 1e9));
+	vcvtsi2sd	xmm9, xmm6, rsi	# tmp318, tmp392, diff$tv_sec
 # /usr/include/x86_64-linux-gnu/bits/stdio2.h:86:   return __printf_chk (__USE_FORTIFY_LEVEL - 1, __fmt, __va_arg_pack ());
 	lea	rsi, .LC8[rip]	# tmp218,
-# segmented_sieve.c:247:     printf("Time = %0.5f seconds\n", diff.tv_sec + (diff.tv_nsec / 1e9));
+# segmented_sieve.c:245:     printf("Time = %0.5f seconds\n", diff.tv_sec + (diff.tv_nsec / 1e9));
+	vcvtsi2sd	xmm7, xmm6, rax	# tmp317, tmp391, diff$tv_nsec
+	vdivsd	xmm8, xmm7, QWORD PTR .LC7[rip]	# tmp214, tmp213,
+# /usr/include/x86_64-linux-gnu/bits/stdio2.h:86:   return __printf_chk (__USE_FORTIFY_LEVEL - 1, __fmt, __va_arg_pack ());
+	mov	eax, 1	#,
+# segmented_sieve.c:245:     printf("Time = %0.5f seconds\n", diff.tv_sec + (diff.tv_nsec / 1e9));
 	vaddsd	xmm0, xmm8, xmm9	# tmp217, tmp214, tmp216
 # /usr/include/x86_64-linux-gnu/bits/stdio2.h:86:   return __printf_chk (__USE_FORTIFY_LEVEL - 1, __fmt, __va_arg_pack ());
 	call	__printf_chk@PLT	#
@@ -3030,53 +3023,44 @@ main:
 	mov	rcx, QWORD PTR -152[rbp]	#, %sfp
 	lea	rsi, .LC9[rip]	# tmp219,
 	call	__printf_chk@PLT	#
-# segmented_sieve.c:250:     free(base_primes);
+# segmented_sieve.c:248:     free(base_primes);
 	mov	rdi, QWORD PTR -104[rbp]	#, %sfp
 	call	free@PLT	#
-# segmented_sieve.c:251:     return 0;
+# segmented_sieve.c:249:     return 0;
 	xor	eax, eax	# <retval>
 	jmp	.L382	#
 .L455:
-# segmented_sieve.c:222:     ThreadData data[num_threads];
+# segmented_sieve.c:223:     ThreadData data[num_threads];
 	or	QWORD PTR -8[rsp+rdi], 0	#,
 	jmp	.L392	#
 .L393:
-# segmented_sieve.c:223:     PrimeState *base_primes = GetBasePrimes(sqrt(max_num), &prime_count);
+# segmented_sieve.c:224:     PrimeState *base_primes = GetBasePrimes(sqrt(max_num), &prime_count);
 	mov	rdx, QWORD PTR -104[rbp]	# max_num, %sfp
 	vxorpd	xmm4, xmm4, xmm4	# tmp365
-	mov	r11, rdx	# tmp185, max_num
+	mov	r11, rdx	# tmp186, max_num
 	and	edx, 1	# max_num,
-	shr	r11	# tmp185
-	or	r11, rdx	# tmp243, tmp186
+	shr	r11	# tmp186
+	or	r11, rdx	# tmp243, tmp187
 	vcvtsi2sd	xmm0, xmm4, r11	# tmp316, tmp365, tmp243
-	vaddsd	xmm0, xmm0, xmm0	# _9, tmp184, tmp184
+	vaddsd	xmm0, xmm0, xmm0	# _9, tmp185, tmp185
 	jmp	.L394	#
-.L450:
-	mov	rax, r12	# _73, _73
-	mov	r11, rbx	# ivtmp.193, ivtmp.193
-	mov	QWORD PTR -160[rbp], rsi	# %sfp, ivtmp.181
-	mov	rbx, r14	# ivtmp.190, ivtmp.190
-	mov	r12, r8	# ivtmp.191, ivtmp.191
-	mov	r14, r13	# total_bits, total_bits
-	mov	r13, rax	# _73, _73
-	jmp	.L402	#
 .L398:
-# segmented_sieve.c:223:     PrimeState *base_primes = GetBasePrimes(sqrt(max_num), &prime_count);
-	vsubsd	xmm5, xmm0, xmm2	# tmp190, _10, tmp189
-	vcvttsd2si	rdi, xmm5	# tmp244, tmp190
-	btc	rdi, 63	# tmp188,
+# segmented_sieve.c:224:     PrimeState *base_primes = GetBasePrimes(sqrt(max_num), &prime_count);
+	vsubsd	xmm5, xmm0, xmm2	# tmp191, _10, tmp190
+	vcvttsd2si	rdi, xmm5	# tmp244, tmp191
+	btc	rdi, 63	# tmp189,
 	jmp	.L399	#
 .L407:
-# segmented_sieve.c:239:     uint64_t total_primes = 1; // Count 2
+# segmented_sieve.c:237:     uint64_t total_primes = 1; // Count 2
 	mov	ebx, 1	# total_primes,
 	jmp	.L400	#
+.L453:
+# segmented_sieve.c:250: }
+	call	__stack_chk_fail@PLT	#
 .L445:
-# segmented_sieve.c:223:     PrimeState *base_primes = GetBasePrimes(sqrt(max_num), &prime_count);
+# segmented_sieve.c:224:     PrimeState *base_primes = GetBasePrimes(sqrt(max_num), &prime_count);
 	call	sqrt@PLT	#
 	jmp	.L397	#
-.L453:
-# segmented_sieve.c:252: }
-	call	__stack_chk_fail@PLT	#
 	.cfi_endproc
 .LFE6497:
 	.size	main, .-main
@@ -3104,7 +3088,7 @@ mask:
 .LC7:
 	.long	0
 	.long	1104006501
-	.ident	"GCC: (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0"
+	.ident	"GCC: (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0"
 	.section	.note.GNU-stack,"",@progbits
 	.section	.note.gnu.property,"a"
 	.align 8

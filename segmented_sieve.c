@@ -150,10 +150,8 @@ void *SieveRange(void *arg) {
             uint64_t p = local_primes[i].p;
             uint64_t chk_bit = local_primes[i].next_bit;
             if (chk_bit >= offset + bits_in_block) continue;
-
             chk_bit -= offset;
             uint64_t step = p;
-
             // Manual loop unrolling (8x)
             if (bits_in_block > (step << 3)) {
                 uint64_t unroll_limit = bits_in_block - (step << 3);
@@ -211,6 +209,9 @@ int main(int argc, char *argv[]) {
     if (!(max_num & 1)) max_num--;
     uint64_t total_bits = (max_num >> 1) + 1;
 
+    struct timespec begin, end, diff;
+    clock_gettime(CLOCK_REALTIME, &begin);
+
     setlocale(LC_ALL, "");
     init_avx_pattern();
 
@@ -224,9 +225,6 @@ int main(int argc, char *argv[]) {
 
     uint64_t total_blocks = (total_bits + BLOCK_BITS - 1) / BLOCK_BITS;
     uint64_t blocks_per_thread = total_blocks / num_threads;
-
-    struct timespec begin, end, diff;
-    clock_gettime(CLOCK_REALTIME, &begin);
 
     for (int i = 0; i < num_threads; i++) {
         data[i].start_bit = i * blocks_per_thread * BLOCK_BITS;
